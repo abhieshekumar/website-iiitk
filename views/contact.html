@@ -1,0 +1,109 @@
+<style>
+    h1,h2,h3,h4,h5,h6{color:rgb(66,133,244);}
+    .card .card-action{border:none;padding:0;}
+    .custom-social{height:45px;}
+    .card .card-content{border:none;padding:15px;}
+    .custom-social-cards div.card{width:15%;}
+    @media screen and (max-width:750px){
+        .custom-social-cards div.card{width:33.333%;}
+    }
+</style>
+<div id="topControl"></div>
+<br>
+<div class="container">
+    <div class="row">
+        <div class="col s12 ">
+            <iframe width="100%" frameborder="0" class="custom-card-depth" style="border:0;height:400px" src="https://www.google.com/maps/d/u/0/embed?mid=1c065zpM8kyKJFv509MAvJ6UNF44LdGYR"></iframe>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col s12 m4">
+            <div class="card transparent z-depth-0">
+                <div class="card-content white-text center-align">
+                    <a class="instagram">
+                        <i class="fa fa-phone"></i>
+                    </a>
+                </div>
+                <div class="card-action center-align">
+                   <h5>Reach Us</h5>
+                   <span class="para">+91-0471-2599166</span>
+                   <span class="para">registrar@iiitkottayam.ac.in</span>
+                </div>
+            </div>
+        </div>
+        <div class="col s12 m4">
+            <div class="card transparent z-depth-0">
+                <div class="card-content white-text center-align">
+                    <a class="instagram">
+                        <i class="fa fa-envelope"></i>
+                    </a>
+                </div>
+                <div class="card-action center-align">
+                   <h5>Address</h5>
+                   <span class="para">
+                       Indian Institute of Information Technology Kottayam
+                       C/o IISER - Thiruvananthapuram Transit campus,Computer Science Building , CET, Engineering College (P.O)
+                       Trivandrum - 695016, Kerala, India
+                    </span>
+                </div>
+            </div>
+        </div>        
+        <div class="col s12 m4">
+            <div class="card transparent z-depth-0">
+                <div class="card-content white-text center-align">
+                    <a class="instagram">
+                        <i class="fa fa-bank"></i>
+                    </a>
+                </div>
+                <div class="card-action center-align">
+                   <h5>Registered Office</h5>
+                   <span class="para">Building no.340 Karoor Valavoor P.O. Kottayam Kerala 686635</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col s12">
+            <div class="flex flex-center-h custom-social-cards">
+                <div class="card z-depth-0 transparent">
+                    <div class="card-content white-text center-align">
+                        <a href="https://www.facebook.com/IIITKtym" target="new" class="facebook" >
+                            <i class="fa fa-facebook big-icon white-text" style="background:#3b5998;"></i>
+                        </a>
+                    </div>
+                    <div class="card-action center-align custom-social">
+                        <iframe src="https://www.facebook.com/plugins/like.php?href=https%3A%2F%2Fwww.facebook.com%2FIIITKtym&width=200&layout=button&action=like&size=large&show_faces=false&share=false&height=35&appId" width="65" height="29" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media"></iframe>
+                    </div>
+                </div>
+                <div class="card z-depth-0 transparent">
+                    <div class="card-content white-text center-align">
+                        <a href="https://www.twitter.com/IIITKottayam" target="new" class="twitter">
+                            <i class="fa fa-twitter big-icon white-text" style="background:#00aced"></i>
+                        </a>
+                    </div>
+                    <div class="card-action center-align custom-social">
+                        <a href="https://twitter.com/IIITKottayam" class="twitter-follow-button" data-size="large" data-show-count="false" data-show-screen-name="false">Follow @IIITKtym</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </style>
+    <style>
+        input[type=submit]{padding:5px 15px;outline:none;border:none;cursor:pointer;color:white;}
+    </style>
+    <div style="position:fixed;bottom:0;right:20px;">
+        <ul class="collapsible border-radius" data-collapsible="accordion">
+            <li>
+                <div class="collapsible-header border-radius-top institute-blue-bg white-text"><i class="material-icons white-text notranslate">message</i>Write To Us</div>
+                <div class="collapsible-body white border-radius-bottom">
+                    <form onsubmit="return false;" ng-submit="contactCtrl.feedback()">
+                        <input type="email" placeholder="Email" ng-model="contactCtrl.contact.email">
+                        <input type="text" placeholder="Message" ng-model="contactCtrl.contact.message">
+                        <input type="submit" class="border-radius institute-green-bg" value="Send"></input>
+                    </form>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>

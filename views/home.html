@@ -1,0 +1,238 @@
+<style>
+    .custom-head {padding: 0.01em 16px;}
+    .custom-caption{text-shadow: 2px 4px 3px rgba(0,0,0,0.3);}
+    @media only screen and (max-width: 600px) {
+        .slider .slides li .caption{top:5% !important;}
+    }
+    .custom-faculty-card{width:48%}
+    @media only screen and (min-width:600px){
+        .custom-faculty-card{width:32%}
+    }
+    .carousel .indicators .indicator-item.active {background-color: rgb(56, 178, 71);}
+    .carousel .indicators .indicator-item {background-color:rgba(56, 178, 71,0.5);}
+    #showMore,#showLess,#knowMore{padding: .375rem .75rem;color: rgba(0,0,0,0.5);border: 2px solid #e0e0e0;font-size:14px;cursor:pointer}
+    .newsLink{width:fit-content;border-radius:3px;padding: .375rem .75rem;color: #e0e0e0;border: 2px solid #e0e0e0;}
+    .carousel .indicators{width:fit-content;margin:0 auto;}
+    .custom-news div{padding:10px 15px;border-bottom:solid 2px #f1f1f1;}
+    .carousel .indicators .indicator-item{margin:4px}
+</style>
+
+<div id="topControl">
+    <div class="slider">
+        <ul class="slides">
+            <li>
+                <img src="data/images/home/upcoming0.jpg" alt="Upcoming Campus of IIIT Kottayam">
+            </li>
+            <li>
+                <img src="data/images/home/upcoming5.jpg" alt="Upcoming Campus of IIIT Kottayam">
+            </li>
+            <li>
+                <img src="data/images/home/upcoming2.jpg" alt="Upcoming Campus of IIIT Kottayam">
+            </li>
+            <li>
+                <img src="data/images/home/upcoming3.jpg" alt="Upcoming Campus of IIIT Kottayam">
+            </li>
+            <li>
+                <img src="data/images/home/upcoming6.jpg" alt="Upcoming Campus of IIIT Kottayam">
+            </li>
+        </ul>
+        <div style="width:100%;height:100%;z-index:3;position:absolute;top:0" class="flex flex-row flex-center flex-justify">
+            <div onclick="$('.slider').slider('prev');">
+                <i class="fa fa-angle-double-left text-white" style="background:none;color:white;text-shadow:0 0 8px black;font-size:40px"></i>
+            </div>
+            <div class="caption center-align">
+                <h3 class="custom-caption white-text">Upcoming Campus</h3>
+                <h5 class="light grey-text text-lighten-3">The campus is expected to be operational in 2018</h5>
+                <br>
+                <a class="btn-flat" style="color:white;border:solid 1px white;border-radius:3px" href="#!gallery/packiyarajan/IIITK%20Upcomming%20Campus%20%20Aug%202017/Upcoming Campus/home">Visit Gallery</a>
+            </div>
+            <div onclick="$('.slider').slider('next');">
+                <i class="fa fa-angle-double-right" style="background:none;color:white;text-shadow:0 0 8px black;font-size:40px"></i>
+            </div>
+        </div>
+  </div>
+</div>
+
+<div class="container">
+    <div class="row" style="padding-top:20px; margin-bottom:0">
+        <div class="col s12">
+            <div class="row">
+                <div class="col s12">
+                    <h4>IIIT Kottayam Welcomes You</h4>
+                    <div class="para justify">
+                        Indian Institute of Information Technology, Kottayam at Valavoor, Pala, Kerala is one among the 20 new IIITs that have been proposed to be established across the country. The project is implemented on public-private partnership (PPP) mode with funding from the Central Government, State government and Private Partners.
+                        <br><br>
+                        The permanent campus for IIIT Kottayam is coming up at Valavoor, Pala, Kottayam, which is located in the southern part of Kerala, commonly referred to as God’s Own Country.  Fifty three acres of land has been allocated for the project by the Government of Kerala. The construction and development of the campus has been planned in three phases. The first two phases, which include the basic academic, administrative and other developments, are estimated to cost Rs. 128 crore, which will be shared by the Central, State government and the industrial partners in the ratio of 50:35:15. The estimated cost of the third phase, which is envisaged as an expansion of the existing facility, will be around Rs. 70 crore.
+                    </div>
+                    <br>
+                    <div class="para justify" id="moreText" style="display:none">
+                        <br>The institution will offer B.Tech and B.Tech / MS , Ph.D courses in various engineering streams. It offers specialized courses covering all major research domains of computer science and engineering: Data science, Cloud Computing, Artificial Intelligence, Machine learning, Parallel Computing, HPC, Programming languages, Bio informatics, and so forth, as part of the 4 year B.Tech program. In addition, it offers Ph.D programs in CSE, ECE, and Mathematics.
+                        <br><br>
+                        The transit campus of the institution is presently functioning in the academic building of the Indian Institute of Science Education and Research , Thiruvananthapuram  (IISER-TVM) at Gulati Institute of Finance and Taxation (GIFT) , Thiruvananthapuram and functioning under the ambit of the IIIT (PPP) Act 2017 under the mentorship of IISER-TVM . The permanent campus at Valavoor, Pala, Kottayam is expected to be functional in the Academic year 2018-19. 
+                    </div>
+                </div>
+                <div class="col s12">
+                    <br>
+                    <span class="para border-radius" id="showMore" ng-click="homeCtrl.additionalText()">Show More</span>
+                    <span class="para border-radius" id="showLess" ng-click="homeCtrl.additionalText()" style="display:none">Show Less</span>
+                    <br><br>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col s12 m6">
+            <div class="card custom-card-depth border-radius" style="width: 100%;height:400px">
+                <div class="custom-head institute-blue-bg white-text border-radius-top flex flex-row flex-end valign-wrapper">
+                    <h5 style="flex-grow:2" class="white-text">Latest News</h5>
+                    <span style="font-size:35px"><a href="#!news" class="white-text">+</a></span>
+                </div>
+                <div class="card-content" style="overflow:hidden;padding:0;height:350px">
+                    <div class="custom-news">
+                        <div ng-repeat="news in homeCtrl.newsList">
+                            <a ng-href="{{news.link}}" target="{{news.target}}">{{news.text}}</a>
+                            <span ng-show="{{news.new}}" class="new badge" style="background:rgb(56, 178, 71)" data-badge-caption="New"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col s12 m6">
+            <div class="card custom-card-depth border-radius" style="width: 100%;height:400px">
+                <div class="custom-head institute-blue-bg white-text border-radius-top">
+                    <h5 class="white-text">Events</h5>
+                </div>
+                <div class="carousel carousel-slider border-radius" data-indicators="true" id="sideEvents" style="border-radius:0 !important">
+                    <div class="carousel-item white-text white">
+                        <div class="flex flex-center-h flex-end" style="width:100%;height:55%;background:url(data/images/home/SHS18.jpg) center center / cover">
+                            <a class="btn-flat" style="z-index:1000; margin: 0 0 10px 0;border-radius:3px;color: rgb(101,99,98); border: 1px solid rgba(224,224,224,0.52);background:rgba(247,247,247,0.52)" href="#!gallery/IIIT_Kottayam/Swachhata%20Hi%20Seva%202018/SHS 2018/home">Visit Gallery</a>
+                        </div>
+                        <div style="padding:15px;">
+                            <p class="para institute-blue" style="font-weight:bold;font-size:20px;margin:0">SHS 2018</p>
+                            <p class="para" style="color:rgba(0, 0, 0, 0.87);margin:0">Swachhata Hi Seva</p>
+                        </div>
+                    </div>
+                    <div class="carousel-item white-text white">
+                        <div class="flex flex-center-h flex-end" style="width:100%;height:55%;background:url(data/images/home/pradhva.jpg) center center / cover">
+                            <a class="btn-flat" style="margin: 0 0 10px 0;border-radius:3px;color: rgb(101,99,98); border: 1px solid rgba(224,224,224,0.52);background:rgba(247,247,247,0.52)" href="#!gallery/IIIT_Kottayam/Pradhva%202k18/Sports Meet 2018/home">Visit Gallery</a>
+                        </div>
+                        <div style="padding:15px;">
+                            <p class="para institute-blue" style="font-weight:bold;font-size:20px;margin:0">Pradhva</p>
+                            <p class="para" style="color:rgba(0, 0, 0, 0.87);margin:0">Sports Meet 2018</p>
+                        </div>
+                    </div>
+                    <div class="carousel-item white-text white">
+                        <div class="flex flex-center-h flex-end" style="width:100%;height:55%;background:url(data/images/home/indep18.JPG) center center / cover">
+                            <a class="btn-flat" style="margin: 0 0 10px 0;border-radius:3px;color: rgb(101,99,98); border: 1px solid rgba(224,224,224,0.52);background:rgba(247,247,247,0.52)" href="#!gallery/IIIT_Kottayam/Independence%20Day%202018/Independence Day 2018/home">Visit Gallery</a>
+                        </div>
+                        <div style="padding:15px;">
+                            <p class="para institute-blue" style="font-weight:bold;font-size:20px;margin:0">2k18</p>
+                            <p class="para" style="color:rgba(0, 0, 0, 0.87);margin:0">Independence Day 2018</p>
+                        </div>
+                    </div>
+                    <div class="carousel-item white-text white">
+                        <div class="flex flex-center-h flex-end" style="width:100%;height:55%;background:url(data/images/home/orientation18.jpg) top center / cover">
+                            <a class="btn-flat" style="margin: 0 0 10px 0;border-radius:3px;color: rgb(101,99,98); border: 1px solid rgba(224,224,224,0.52);background:rgba(247,247,247,0.52)" href="#!gallery/IIIT_Kottayam/Orientation%20Programme-2018/Orientation 2018/home">Visit Gallery</a>
+                        </div>
+                        <div style="padding:15px;">
+                            <p class="para institute-blue" style="font-weight:bold;font-size:20px;margin:0">Orientation 2018</p>
+                            <p class="para" style="color:rgba(0, 0, 0, 0.87);margin:0">Welcoming the freshmen</p>
+                        </div>
+                    </div>
+                    <div class="carousel-item white-text white">
+                        <div class="flex flex-center-h flex-end" style="width:100%;height:55%;background:url(data/images/home/ekbharat.jpg) top center / cover">
+                            <a class="btn-flat" style="margin: 0 0 10px 0;border-radius:3px;color: rgb(101,99,98); border: 1px solid rgba(224,224,224,0.52);background:rgba(247,247,247,0.52)"  href="#!gallery/packiyarajan/IIITK%20Ek%20Bharat%20Shreshta%20Bharat/Ek Bharat Shreshta Bharat/home">Visit Gallery</a>
+                        </div>
+                        <div style="padding:15px;">
+                            <p class="para institute-blue" style="font-weight:bold;font-size:20px;margin:0">Ek Bharat Shresthra Bharat</p>
+                            <p class="para" style="color:rgba(0, 0, 0, 0.87);margin:0">Various cultural events were organised to celebrate the occassion</p>    
+                        </div>
+                    </div>
+                    <div class="carousel-item white-text white">
+                        <div class="flex flex-center-h flex-end" style="width:100%;height:55%;background:url(data/images/home/republic18.jpg) center center / cover">
+                            <a class="btn-flat" style="margin: 0 0 10px 0;border-radius:3px;color: rgb(101,99,98); border: 1px solid rgba(224,224,224,0.52);background:rgba(247,247,247,0.52)" href="#!gallery/packiyarajan/IIIT%20Kottayam%20Republic%20Day%20%202018/Republic Day Celebration/home">Visit Gallery</a>
+                        </div>
+                        <div style="padding:15px;">
+                            <p class="para institute-blue" style="font-weight:bold;font-size:20px;margin:0">Republic Day</p>
+                            <p class="para" style="color:rgba(0, 0, 0, 0.87);margin:0">Republic Day was observed zealously by the IIIT-K family</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col s12">
+            <div class="row">
+                <div class="col s12 m6">
+                    <h4>Vision</h4>
+                    <div class="para justify">
+                        To contribute to India and the world through excellence in Information Technology, technical education and research and to serve as a valuable resource for industries and society.
+                    </div>
+                </div>
+                <div class="col s12 m6">
+                    <h4>Mission</h4>
+                    <div class="para justify">
+                        Generate a specialized cadre of Information Technology experts by imparting quality education,training and to attain international standards in teaching, research and consultancy with global linkage
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col s12">
+            <h4>Atal Incubation Center</h4>
+            <div class="para justify">
+                AIC-IIITKottayam, will address the existing problems of entrepreneurs by providing them sufficient input in terms of knowledge, guidance, mentoring, training, and demonstrations. In addition, the space and facility will be provided to them. The centre will incubate customers to increase the utility of technology relating to IoT and Cloud solutions for societal benefits.
+            </div>
+        </div>
+        <div class="col s12">
+            <br>
+            <span class="para border-radius" id="knowMore" style="margin-bottom: 10px;">
+                    <a href="http://icentre.iiitkottayam.ac.in/" style="color:rgba(0,0,0,0.5)">Know More</a>
+            </span>
+            <br>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col m12 l6">
+            <div class="custom-head institute-blue-bg white-text border-radius-top flex flex-row flex-end valign-wrapper" style="margin-top:8px">
+                <h5 style="flex-grow:2" class="white-text">Meet the Faculty</h5>
+                <span style="font-size:35px"><a href="#!faculty" class="white-text">+</a></span>
+            </div>
+            <div class="flex flex-row flex-justify flex-wrap">
+                <div class="card flex flex-column custom-faculty-card" style="height:290px" ng-repeat="faculty in homeCtrl.rankedFaculty | orderBy:'rank' | limitTo:3">
+                    <div class="card-image waves-effect waves-block waves-light">
+                        <img class="activator" ng-src="data/images/{{faculty.faculty.photo}}" style="width:100%">
+                    </div>
+                    <div class="card-content" style="padding:8px">
+                        <span class="card-title activator grey-text text-darken-4" style="margin-bottom:0px;font-size:20px;">{{faculty.faculty.name}}<i class="material-icons right notranslate" >more_vert</i></span>
+                        <p><i>{{faculty.faculty.designation}}</i></p>
+                    </div>
+                    <div class="card-reveal" style="padding:8px">
+                        <span class="card-title grey-text text-darken-4" style="font-size:20px"><i class="material-icons right notranslate" >close</i>{{faculty.faculty.name}}</span>
+                        <ol style="padding:0 0 0 12px">
+                            <li ng-repeat="area in faculty.faculty.area | limitTo:3">{{area}}</li>
+                        </ol>                        
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col m12 l6">
+            <div class="card custom-card-depth border-radius" style="width:100%;height:350px">
+                <div class="custom-head institute-blue-bg white-text border-radius-top flex flex-row flex-end valign-wrapper">
+                    <h5 style="flex-grow:2" class="white-text">Research Publication</h5>
+                    <span style="font-size:35px"><a href="#!researchPublication" class="white-text">+</a></span>
+                </div>
+                <div class="card-content" style="overflow-x:hidden;overflow-y:auto;padding:0;height:300px">
+                    <div ng-repeat="publication in homeCtrl.rankedPublication | orderBy:'rank' | limitTo:3" style="border-bottom:solid 2px #f1f1f1">
+                        <div style="padding:5px 10px;">
+                            <span style="color:#039be5">{{publication.publication.title}}</span>
+                            <span class="new badge" class="new badge" style="background:rgb(56, 178, 71)" data-badge-caption=""><a ng-href="https://scholar.google.co.in/scholar?&q={{publication.publication.title}}" style="text-decoration:none; color:white" target="_blank">More</a></span>
+                            <br>
+                            <span ng-repeat="author in publication.publication.authors" style="color:#8c8c8c"> - <b>{{author}}</b></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,159 @@
+<style>
+    .recruiterLogo{max-height:100px;padding:10px;}
+    .custom-card-head{padding:15px 24px 0 24px;}
+    .card{border-radius:4px}
+    .chip{color:rgb(8, 55, 97);font-size:16px;height:50px;padding:10px 20px 10px 0;margin:0 10px 0 0;background:transparent}
+    .material-icons{float:left; padding-right:4px; font-size: 24px;line-height: 32px;}
+</style>
+<div id="topControl"></div>
+<br>
+<div class="container">
+    <div class="row">
+        <div class="col s12">
+            <h4>Our Recruiters</h4>
+        </div>
+        <div class="col s12 m4"  ng-repeat="recruiter in placementCtrl.recruiters">
+            <div class="card horizontal">
+                <div class="card-image valign-wrapper">
+                    <img ng-src="data/images/placement/{{recruiter.img}}" class="recruiterLogo" alt="{{recruiter.company}}">
+                </div>
+                <div class="card-stacked">
+                    <div class="card-content">
+                        <h5>{{recruiter.company}}</h5>
+                        <span>{{recruiter.location}}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col s12">
+            <h4>Contact Us</h4>
+        </div>
+    </div>
+    <div class="row flex flex-wrap">
+        <div class="col s12 m4 flex">
+            <div class="card white custom-card-depth flex flex-column" style="width:100%">
+                <div class="custom-card-head border-radius-top">
+                    <h6 class="card-title black-text">Placement Cell Faculty Incharge</h6>
+                </div>
+                <div class="card-content white-text" style="flex-grow:1">
+                    <p class="black-text para">Dr.Shajulin Benedict</p>
+                    <p class="black-text para">shajulin@iiitkottayam.ac.in</p>
+                    <p class="black-text para">9443543746</p>
+                </div>
+            </div>
+        </div>
+        <div class="col s12 m4 flex">
+            <div class="card white custom-card-depth flex flex-column" style="width:100%">
+                <div class="custom-card-head">
+                    <h6 class="card-title black-text">Contact</h6>
+                </div>
+                <div class="card-content white-text" style="flex-grow:1">
+                    <p class="black-text para">Placement Co-ordinators, Placement Cell -IIITK,</p>
+                    <p class="black-text para">Indian Institute of Information Technology Kottayam,</p>
+                    <p class="black-text para">GIFT Campus, Chavdimukku,</p>
+                    <p class="black-text para">Sreekariyam, Trivandrum, kerala, India - 695017</p>
+                    <br>
+                    <p class="black-text para">Email: placement@iiitkottayam.ac.in</p>
+                    <p class="black-text para">Phone: 0091-471-2599144, +91-8921497944</p>
+                </div>
+            </div>
+        </div>
+        <div class="col s12 m4 flex">
+            <div class="card white custom-card-depth flex flex-column" style="width:100%">
+                <div class="custom-card-head">
+                    <h6 class="card-title black-text">Placement Brochure</h6>
+                </div>
+                <div class="card-content white-text" style="flex-grow:1">
+                    <p class="black-text para">Get an insight on the course structure,</p>
+                    <p class="black-text para">industrial connect, achievements, clubs</p>
+                    <p class="black-text para">and much more by viewing the placement brochue</p>
+                    <br>
+                    <div class="chip truncate link-color">                                
+                        <i class="material-icons">insert_link</i>
+                        <a class="link-color" href="#!pdf/placement/brochure/Placement Brochure">Placement Brochure</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col s12">
+            <h4>4<sup>th</sup> year co-ordinators</h4>
+            <table class="para striped responsive-table">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>E-mail</th>
+                        <th>Contact</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>K. Yashwant</td>
+                        <td>yashwant15@iiitkottayam.ac.in</td>
+                        <td>8921497944</td>
+                    </tr>
+                    <tr>
+                        <td>Shivendra Singh</td>
+                        <td>shivendra15@iiitkottayam.ac.in</td>
+                        <td>8318835188</td>
+                    </tr>
+                    <tr>
+                        <td>Shubham Kumar</td>
+                        <td>shubham15@iiitkottayam.ac.in</td>
+                        <td>9560816088</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col s12">
+            <h4>3<sup>rd</sup> year co-ordinators</h4>
+            <table class="para striped responsive-table">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>E-mail</th>
+                        <th>Contact</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Vanshika Jain</td>
+                        <td>vanshikha16@iiitkottayam.ac.in</td>
+                        <td>9207397745</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col s12">
+            <h4>2<sup>nd</sup> year co-ordinators</h4>
+            <table class="para striped responsive-table">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>E-mail</th>
+                        <th>Contact</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>SriLakshmi Ajith</td>
+                        <td>srilakshmiajith2017@iiitkottayam.ac.in</td>
+                        <td>9895559801</td>
+                    </tr>
+                    <tr>
+                        <td>Gunish</td>
+                        <td>gunish2017@iiitkottayam.ac.in</td>
+                        <td>9818166609</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

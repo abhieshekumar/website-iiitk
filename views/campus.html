@@ -1,0 +1,144 @@
+<style>
+    .materialboxed{ margin:10px 0 0 0;border:solid 1px #e0e0e0}
+    .tabs .tab{min-width:150px;width:20%}
+    .tabs{background:transparent;overflow-x:hidden}
+    .tabs .tab a{font-size:16px;color:white;background:transparent;transition:all 0.4s ease-in}
+    .tabs .tab a:hover{color:white;}
+    .tabs .tab a.active{color:white;font-weight:bold}
+    .tabs .indicator{background-color:white}
+    @media screen and (min-width:995px){
+        .tabs .indicator{background-color:transparent;}
+        .tabs .indicator{display: none}
+        .tabs .tab a.active{background:rgba(0,0,0,0.1);border-radius:4px}
+    }
+    .image-grid img{float:left;margin-right:10px;}
+</style>
+<div id="topControl">
+    <div class="container">
+        <div class="row flex flex-center flex-wrap">
+            <div class="col s12 m12 l2">
+                <h4 class="center-align white-text">
+                    Campus
+                </h4>
+            </div>
+            <div class="col s1 m1 l1" style="padding:0" ng-click="campusCtrl.scrollLeft()">
+                <i class="fa fa-angle-left tabs-scroll" aria-hidden="true"></i>
+            </div>
+            <div class="col s10 m10 l8">
+                <ul class="tabs transparent flex flex-row flex-justify" id="tabs">
+                    <li class="tab col s3"><a href="#overview" class="white-text">Overview</a></li>
+                    <li class="tab col s3"><a href="#ieee" class="white-text">IEEE</a></li>
+                    <li class="tab col s3"><a href="#hostel" class="white-text">Hostel</a></li>
+                    <li class="tab col s3"><a href="#internet" class="white-text">Internet</a></li>
+                    <li class="tab col s3" style="min-width:180px"><a href="#sportsandyoga" class="white-text">Sports and Yoga</a></li>
+                </ul>
+            </div>
+            <div class="col s1 m1 l1" style="padding:0" ng-click="campusCtrl.scrollRight()">
+                <i class="fa fa-angle-right tabs-scroll" aria-hidden="true"></i>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div id="overview" class="col s12">
+            <h4>Overview</h4>
+            <div class="para justify">
+                All efforts are made to ensure a vibrant and creative student life at par with other Institutions of National Importance within the constrains of a transit campus. IIIT Kottayam ensures a 100 percent anti-ragging campus. The freshmen of the institute are treated without inequity and gender bias. IIIT Kottayam has several forums for students to organize and develop their skills. Clubs such as the Technical Club, the Sports Club, the Cultural Club, and the Social Club offer the students a platform to polish their skills.
+                <br><br>
+                The classes are conducted at Gulati Institute of Finance and Taxation, Thiruvananthapuram, C/o IISER-TVM. The permanent campus for IIIT Kottayam is coming up at Valavoor, Pala, Kottayam and the shifting of the institute to the permanent campus is expected to be in the academic year 2018-19. The permanent campus is envisioned to be well equipped with research labs based on the requirement of faculty/industries. Several research labs such as an IoT Cloud research lab, a Computer Networking lab, a 3D printing and design lab, etc. are to be looked forward to at IIIT Kottayam. 
+            </div>
+        </div>
+        <div id="ieee" class="col s12">
+            <div class="row">
+                <div class="col s12">
+                    <h4>About IEEE</h4>
+                    <div class="para justify">
+                        IEEE-IIITK is an IEEE initiation started at our institute to enrich the technical activities of our students/faculty. 
+
+                        IEEE-IIITK is a proposed IEEE student branch section of IEEE Kerala Section, India. Currently, we have 22 student members and 2 faculty members registered at IEEE.
+                    </div>
+                    <img src="data/images/info/ieee.jpg" class="materialboxed" width="100%">
+                </div>
+                <div class="col s12">
+                    <h4>Events</h4>
+                    <table class="striped responsive-table para">
+                        <thead>
+                            <tr>
+                                <th>Date</th>
+                                <th>Title</th>
+                                <th>Resource Person</th>
+                                <th>Affiliations</th>
+                                <th>Student Organisers</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>8th March 2018</td>
+                                <td>Tech Talk</td>
+                                <td>Mr.Unni Shankar</td>
+                                <td>QuestGlobal, Trivandrum</td>
+                                <td>Savio Jose</td>
+                            </tr>
+                            <tr>
+                                <td>9th March 2018</td>
+                                <td>Tech Talk</td>
+                                <td>Prof.Dr. Michael Gerndt</td>
+                                <td>Professor, TUM-Germany</td>
+                                <td>A.V.Manikyala Rao and Anju Mary Peter</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div id="hostel" class="col s12">
+            <div class="row">
+                <div class="col s12">
+                    <h4>Hostel</h4>
+                    <div class="justify para">
+                        Separate hostel accommodation is provided for boys and girls. There are two hostels for boys and one hostel for girls. All the hostels have common rooms, 24 hour Wifi-connectivity and recreational centres where newspapers, magazines and TVs are available. Round the clock water and electricity is provided. Laundry equipments are also available in the hostels. <i>Dr. Vennapusa Sivaranjana Reddy</i> is the Warden In Charge.
+                    </div>
+                </div>
+                <div class="col s12 m6">
+                    <h5>Boys' Hostel</h5>
+                    <div class="para"><i>Dr. Ebin Deni Raj</i> and <i>Dr. Shajulin Benedict</i> are Assistant Wardens for the Boys' Hostels.</div>
+                    <img class="materialboxed" data-caption="Anu Apartments (Transit Campus)" width="100" src="data/images/info/anuapartments.jpg">
+                    <br>
+                </div>
+                <div class="col s12 m6">
+                    <h5>Girls' Hostel</h5>
+                    <div class="para"><i>Dr. Jaise Jose</i> is the Resident Warden and <i>Dr Bini A. A.</i> is the Assistant Warden for the Girls' Hostel.</div>
+                    <img class="materialboxed" data-caption="Samarpan Apartments (Transit Campus)" width="100" src="data/images/info/samarppan.jpg">
+                    <br>
+                </div>
+                <div class="col s12">
+                    <h5>Medical Centre</h5>
+                    <p class="para">
+                        Indian Institute of Science Education and Research, Thiruvananthapuram shares their medical centre facilities to IIIT-K students round the clock. A fully equipped ambulance handles emergency cases. Medical facilities are given vital importance and each student is given complete care.
+                    </p>
+                </div>
+                <div class="col s12">
+                    <h5>Services Avaliable</h5>
+                    <div class="para">Security staff : available round the clock.</div>
+                    <div class="para">Maintenance staff : available round the clock.</div>
+                    <div class="para">House keeping staff to clean the common areas.</div>
+                    <div class="para">Complaint/Suggestion book : students' complaints are rectified as soon as possible.</div>
+                    <div class="para">Transport : outsourced ambulance and vehicle services are available.</div>
+                </div>
+            </div>
+        </div>
+        <div id="sportsandyoga" class="col s12">
+            <h4>Sports and Yoga</h4>
+            <div class="para justify">
+                IIIT Kottayam fraternity has celebrated International Yoga Day 2018. Around 60 students participated in Inter IIIT Sports Meet 2018 and won several prizes.
+            </div>
+        </div>
+        <div id="internet" class="col s12">
+            <h4>Internet</h4>
+            <div class="para justify">
+                The transit campus is equipped with an internet band width of 30 Mbps with Wifi access. Internet connectivity is also extended to Boys' and Girls' hostels. There is no restriction on timing or limit for the internet usage. At present, there are 110 systems with wired connectivity and 10 access points are provided for wireless connectivity.
+            </div>
+        </div>
+    </div>
+  </div>

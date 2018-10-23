@@ -1,0 +1,34 @@
+<style>
+    html,body{overflow-x:hidden !important; overflow-y:hidden !important; background:#f7f7f7}
+    .pdf-heading{flex-grow:2;font-size:30px;}
+    @media only screen and (max-width:500px){
+        .pdf-heading{font-size:26px;}
+    }
+    footer{display: none;}
+    #myHeader{display: none !important;}
+    #mobile-head{display:none !important;}
+    .top-container{display: none;padding:0 !important}
+    .pdf-action{flex-grow:1;}
+    #pdfPreview img{width:100%;margin:10px auto;max-width:100%;box-shadow:0 0 8px rgba(0,0,0,0.125);}
+    .pdf-page-header{box-shadow: 0 0 4px rgba(0,0,0,.1), 0 4px 8px rgba(0,0,0,.1);position: fixed;z-index:1000;height:64px;padding:0 25px;width:100% !important;max-width:100% !important;}
+</style>
+<div id="topControl">
+    <div class="container" style="width:100% !important; max-width:100% !important;">
+        <div class="row" style="padding: 0 10px; margin-bottom:0">
+            <div class="col s12 flex flex-row flex-center">
+                <div>
+                    <a href="#!{{pdfCtrl.toView}}" class="black-text"><i class="material-icons small white-text notranslate">arrow_back</i></a>
+                </div>
+                <div class="pdf-heading center-align white-text">
+                    {{pdfCtrl.heading}}
+                </div>                
+                <div>
+                    <a class="black-text" href="data/pdf/{{pdfCtrl.file}}.pdf" download><i class="material-icons small white-text notranslate">file_download</i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container" style="width:100% !important; max-width:100% !important;background:url(data/images/info/loader.gif) center center no-repeat;">
+    <iframe ng-src="{{pdfCtrl.iframeSrc}}" style="width:100%; height:calc(100vh - 45px)" frameborder="0"></iframe>
+</div>

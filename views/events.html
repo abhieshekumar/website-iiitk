@@ -1,0 +1,60 @@
+<style>
+    @media only screen and (max-width: 600px){
+        .valign-wrapper{display: block;}
+        .valign-wrapper div img{margin-top:5px;}
+    }
+    @media only screen and (min-width: 601px){
+        .row .col.m6 {margin-left:0.00000001px;}
+    }
+    .chip{font-size:16px;}
+    .material-icons{float:left; padding-right:4px; font-size: 24px;line-height: 32px;}
+    .custom-card-header{padding: 0.01em 16px;font-size: 15px;}
+    .custom-card-sub-head{padding:10px 16px;font-size:15px;}
+    .custom-card-stacked{padding:10px 16px;}
+    .custom-card-stacked p{margin:2px;}    
+</style>
+<div id="topControl">
+    <div class="container">
+        <div class="row flex flex-center flex-wrap">
+            <div class="col s12 m12 l6">
+                <h4 class="white-text center-align">
+                    Events
+                </h4>
+            </div>
+            <div class="col s12 m12 l6">
+                <input type="text" ng-model="eventsCtrl.searchText.title" placeholder="Search Events" class="autocomplete"></input>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row flex flex-wrap">
+        <div class="col s12 m6 flex" ng-repeat="event in events = ( eventsCtrl.events | filter:eventsCtrl.searchText )">
+            <div class="card flex flex-column custom-card-depth border-radius" style="width: 100%;">
+                <div class="custom-card-header institute-blue-bg border-radius-top">
+                    <h5 class="white-text">{{event.title}}</h5>
+                </div>
+                <div class="custom-card-sub-head para bg-white">
+                    {{event.date}}
+                </div>
+                <div class="row" style="margin:0; min-height:160px;flex-grow:2;">
+                    <div class="col s12" style="height:140px; background-image:url(./data/images/events/{{event.photo.file}}); background-size:cover; background-position-x:{{event.photo.posx}}; background-position-y:{{event.photo.posy}}">
+                    </div>
+                    <div class="col s12" style="padding:10px;">
+                        {{event.description}}
+                    </div>
+                </div>
+                <div ng-if="event.link.length" class="custom-card-stacked bg-dull-white border-radius-bottom border border-top border-dull">
+                    <div class="chip truncate transparent link-color" ng-repeat="link in event.link">                                
+                        <i class="material-icons">link</i>
+                        <a href="{{link.link}}" target="{{link.target}}" class="link-color">{{link.text}}</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <blockquote class="error" ng-if="events.length === 0">
+            <br>
+            Nothing to Display. This happended because the request data is not available.
+        </blockquote>
+    </div>
+</div>

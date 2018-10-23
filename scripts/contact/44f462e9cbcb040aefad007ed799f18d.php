@@ -1,0 +1,1 @@
+<?php header('Location : index.php'); exit();?> Message : Email : Date : 2018-08-12 11:31:25:000000

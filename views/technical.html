@@ -1,0 +1,65 @@
+<style>
+    @media only screen and (max-width: 600px){
+        .valign-wrapper{display: block;}
+        .valign-wrapper div img{margin-top:5px;}
+    }
+    @media only screen and (min-width: 601px){
+        .row .col.m6 {margin-left:0.00000001px;}
+    }
+    .custom-card-header{
+        padding: 0.01em 16px;
+    }
+    .custom-image{
+        border-color:#e6ecf0;width:120px; max-width:95%;padding:2px;border-radius:100%;border-style: solid;border-width: 1px;
+    }
+</style>
+<div id="topControl">
+    <div class="container">
+        <div class="row flex flex-center flex-wrap">
+            <div class="col s12 m12 l6">
+                <h4 class="center-align white-text">
+                    Technical
+                </h4>
+            </div>
+            <div class="col s12 m12 l6">
+                <input type="text" ng-model="tenderCtrl.searchText.name" placeholder="Search Technical" class="autocomplete"></input>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row" >
+        <div class="col s12">
+            <div class="row flex flex-wrap">
+                <div class="col s12 m6 flex" ng-repeat="person in persons = ( technicalCtrl.technical | filter:technicalCtrl.searchText )">
+                    <div class="card custom-card-depth border-radius flex flex-column" style="width:100%;">
+                        <div class="custom-card-header institute-blue-bg border-radius-top">
+                            <h5 class="white-text">{{person.name}}</h5>
+                        </div>
+                        <div class="row valign-wrapper" style="margin:0; min-height:160px;flex-grow:1;">
+                            <div class="col s12 m4 center-align">
+                                <img ng-src="data/images/{{person.photo}}" class="custom-image" alt="{{person.name}}">
+                            </div>
+                            <div class="col s12 m8">
+                                <ul>
+                                    <li ng-repeat="designation in person.designation">{{designation}}</li>
+                                </ul>
+                                <hr class="institute-border-light border-bottom">
+                                <ul>
+                                    <li><span class="truncate">{{person.contact.email}}</span></li>
+                                </ul>
+                                <ul>
+                                   <li ng-repeat="phone in person.contact.phone">{{phone}}</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <blockquote class="error" ng-if="persons.length === 0">
+                    <br>
+                    Nothing to Display. This happended because the request data is not available.
+                </blockquote>
+            </div>
+        </div>
+    </div>
+</div>

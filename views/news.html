@@ -1,0 +1,60 @@
+<style>
+    span.badge{margin:5px 10px 0 0;float:left;}
+    .collapsible-header.active{font-weight:bold !important;}
+    .news-heading{flex-grow:2;font-size:36px;}
+    @media only screen and (max-width:500px){
+        .news-heading{font-size:26px;}
+    }
+    .news-action{flex-grow:1;}
+    .news-page-header{box-shadow: 0 0 4px rgba(0,0,0,.1), 0 4px 8px rgba(0,0,0,.1);position: fixed;z-index:1000;height:64px;padding:0 25px;width:100% !important;max-width:100% !important;}
+</style>
+<div id="topControl" class="topControlFixed">
+    <div class="container" style="width:100% !important; max-width:100% !important;">
+        <div class="row" style="padding:0 10px; margin-bottom:0">
+            <div class="col s12 flex flex-row flex-end">
+                <div>
+                    <a class="black-text" ng-href="#!home"><i class="material-icons small white-text">arrow_back</i></a>
+                </div>
+                <div class="news-heading center-align white-text">
+                    Latest News
+                </div>                
+                <div>
+                    <a class="black-text"><i class="material-icons small white-text" style="opacity:0">arrow_back</i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<br>
+<div class="container">
+    <div class="row">
+        <div class="col s12">
+            <ul class="collapsible border-radius" data-collapsible="accordion">
+                <li ng-repeat="news in newsCtrl.news">
+                    <div class="collapsible-header para flex flex-row flex-end">
+                        <div style="flex-grow:2" class="para">
+                            {{news.title}}
+                        </div>
+                        <div>
+                            <span ng-if="news.status==1" class="new badge" style="background:rgb(56, 178, 71)" data-badge-caption="New"></span>
+                        </div>
+                    </div>
+                    <div class="collapsible-body" style="padding:1rem">
+                        <span ng-if="news.date">
+                            {{news.date}}
+                        </span>
+                        <span ng-if="news.description" ng-bind-html="news.description">
+                        </span>
+                        <div ng-if="news.link" class="row" style="margin-bottom:0;margin-top:5px">
+                            <div class="col s12">
+                                <span ng-repeat="link in news.link" class="new badge institute-blue-bg" data-badge-caption="&nbsp;">
+                                    <a class="white-text" ng-href="{{link.link}}" target="{{link.target}}">{{link.text}}</a>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>

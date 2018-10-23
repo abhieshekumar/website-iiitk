@@ -1,0 +1,110 @@
+<style>
+    .custom-table-text{font-size:13px;font-family:'Open Sans', sans-serif;}
+    @media screen and (min-width:600px){
+        .custom-table-text{font-size: 16px }
+    }
+    span.badge{float:left !important; margin:5px 10px;}
+    .tabs .tab{min-width:190px;width:33.3333%}
+    .tabs{background:transparent;overflow-x:hidden}
+    .tabs .tab a{font-size:16px;color:white;background:transparent;transition:all 0.4s ease-in}
+    .tabs .tab a:hover{color:white;}
+    .tabs .tab a.active{color:white;font-weight:bold}
+    .tabs .indicator{background-color:white}
+    @media screen and (min-width:995px){
+        .tabs .indicator{background-color:transparent;}
+        .tabs .indicator{display: none}
+        .tabs .tab a.active{background:rgba(0,0,0,0.1);border-radius:4px}
+    }
+</style>
+<div id="topControl">
+    <div class="container">
+        <div class="row flex flex-center flex-wrap">
+            <div class="col s12 m12 l4">
+                <h4 class="center-align white-text">
+                    Tenders
+                </h4>
+            </div>
+            <div class="col s1 m1 l1" style="padding:0" ng-click="tendersCtrl.scrollLeft()">
+                <i class="fa fa-angle-left tabs-scroll" aria-hidden="true"></i>
+            </div>
+            <div class="col s10 m10 l6">
+                <ul class="tabs transparent flex flex-row flex-justify" id="tabs">
+                    <li class="tab col"><a href="#livetenders" class="white-text">Live Tenders</a></li>
+                    <li class="tab col"><a href="#closedtenders" class="white-text">Closed Tenders</a></li>
+                    <li class="tab col"><a href="#cancelledtenders" class="white-text">Cancelled Tenders</a></li>
+                </ul>
+            </div>
+            <div class="col s1 m1 l1" style="padding:0" ng-click="tendersCtrl.scrollRight()">
+                <i class="fa fa-angle-right tabs-scroll" aria-hidden="true"></i>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div id="livetenders" class="col s12">
+            <table class="striped bordered">
+                <thead>
+                    <tr>
+                        <th class="para">Title</th>
+                        <th class="para" style="min-width:100px">Last Date</th>
+                        <th class="para">Link/s</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="tender in tendersCtrl.tenders | filter:{status: 1}:true">
+                        <td class="custom-table-text">{{tender.title}}</td>
+                        <td class="custom-table-text" style="min-width:90px">{{tender.lastDate}}</td>
+                        <td>
+                            <span class="new badge institute-blue-bg" data-badge-caption="&nbsp;" ng-repeat="link in tender.links">
+                                <a class="white-text" href="#!pdf/tenders/{{link.link}}/{{link.title}}">{{link.text}}</a>
+                            </span>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div id="closedtenders" class="col s12">
+            <table class="striped bordered">
+                <thead>
+                    <tr>
+                        <th class="para">Title</th>
+                        <th class="para" style="min-width:100px">Last Date</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="tender in tendersCtrl.tenders | filter:{status: 2}:true">
+                        <td class="custom-table-text">{{tender.title}}</td>
+                        <td class="custom-table-text" style="min-width:90px">{{tender.lastDate}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div id="cancelledtenders" class="col s12">
+            <table class="striped bordered">
+                <thead>
+                    <tr>
+                        <th class="para">Title</th>
+                        <th class="para" style="min-width:100px">Last Date</th>
+                        <th class="para">Link/s</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="tender in tenders = ( tendersCtrl.tenders | filter:{status: 3}:true)">
+                        <td class="custom-table-text">{{tender.title}}</td>
+                        <td class="custom-table-text" style="min-width:90px">{{tender.lastDate}}</td>
+                        <td>
+                            <span class="new badge institute-blue-bg" data-badge-caption="&nbsp;" ng-repeat="link in tender.links">
+                                <a class="white-text" href="#!pdf/tenders/{{link.link}}/{{link.pages}}/{{link.title}}">{{link.text}}</a>
+                            </span>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <blockquote class="error" ng-if="tenders.length === 0">
+                <br>
+                Nothing to Display. This happended because the request data is not available.
+            </blockquote>
+        </div>
+    </div>
+</div>

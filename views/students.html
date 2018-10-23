@@ -1,0 +1,99 @@
+<style>        
+    .studentData.row .col.s12 {width: 100%;left: auto;right: auto;margin-bottom: 5px;box-sizing: border-box;}
+    @media only screen and (min-width: 601px){
+        .studentData.row .col.m6 {width: 47%;margin-left: auto;left: auto;right: auto;margin:5px;box-sizing: border-box;
+    }}
+    @media only screen and (min-width: 993px){
+        .studentData.row .col.l4 {width: 30%;left: auto;right: auto;box-sizing: border-box;margin: 1.5%;
+    }}
+    .tabs .tab{min-width:150px;width:33.3333%;}
+    .tabs{background:transparent;overflow-x:hidden}
+    .tabs .tab a{font-size:16px;color:white;background:transparent;transition:all 0.4s ease-in}
+    .tabs .tab a:hover{color:white;}
+    .tabs .tab a.active{color:white;font-weight:bold}
+    .tabs .indicator{background-color:white}
+    @media screen and (min-width:995px){
+        .tabs .indicator{background-color:transparent;}
+        .tabs .indicator{display: none}
+        .tabs .tab a.active{background:rgba(0,0,0,0.1);border-radius:4px}
+        .autocomplete-content.dropdown-content{
+            width:32.3%;
+        }
+    }
+</style>
+<div id="topControl">
+    <div class="container">
+        <div class="row flex flex-center flex-wrap">
+            <div class="col s12 m12 l2">
+                <h4 class="center-align white-text">
+                    Students
+                </h4>
+            </div>
+            <div class="col s12 m12 l4">
+                <input type="text" ng-model="studentCtrl.searchText" style="margin-bottom:0" placeholder="Search Students Across Batch" class="autocomplete"></input>
+            </div>
+            <div class="col s1 m1 l1" style="padding:0" ng-click="studentCtrl.scrollLeft()">
+                <i class="fa fa-angle-left tabs-scroll" aria-hidden="true"></i>
+            </div>
+            <div class="col s10 m10 l4">
+                <ul class="tabs transparent flex flex-row flex-justify" id="tabs">
+                    <li class="tab col s4"><a href="#batch15" class="white-text">2015 Batch</a></li>
+                    <li class="tab col s4"><a href="#batch16" class="white-text">2016 Batch</a></li>
+                    <li class="tab col s4"><a href="#batch17" class="white-text">2017 Batch </a></li>
+                    <li class="tab col s4"><a href="#batch18" class="white-text">2018 Batch </a></li>
+                </ul>
+            </div>
+            <div class="col s1 m1 l1" style="padding:0" ng-click="studentCtrl.scrollRight()">
+                <i class="fa fa-angle-right tabs-scroll" aria-hidden="true"></i>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row studentData">
+        <div id="batch15" class="col s12">
+            <div class="row">
+                <div class="col s12 m6 l4 white custom-card-depth" ng-repeat="student in students15 = ( studentCtrl.batch.b15 | filter:studentCtrl.searchText )">
+                    <p class="center-align truncate notranslate">{{student}}</p>
+                </div>
+                <blockquote class="error" ng-if="students15.length === 0">
+                    <br>
+                    Nothing to Display. This happended because the request data is not available.
+                </blockquote>
+            </div>
+        </div>
+        <div id="batch16" class="col s12">
+            <div class="row">
+                <div class="col s12 m6 l4 white custom-card-depth" ng-repeat="student in students16 = ( studentCtrl.batch.b16 | filter:studentCtrl.searchText )">
+                    <p class="center-align truncate notranslate">{{student}}</p>
+                </div>
+                <blockquote class="error" ng-if="students16.length === 0">
+                    <br>
+                    Nothing to Display. This happended because the request data is not available.
+                </blockquote>
+            </div>
+        </div>
+        <div id="batch17" class="col s12">
+            <div class="row">
+                <div class="col s12 m6 l4 white custom-card-depth" ng-repeat="student in students17 = ( studentCtrl.batch.b17 | filter:studentCtrl.searchText )">
+                    <p class="center-align truncate notranslate">{{student}}</p>
+                </div>
+                <blockquote class="error" ng-if="students17.length === 0">
+                    <br>
+                    Nothing to Display. This happended because the request data is not available.
+                </blockquote>
+            </div>
+        </div>
+        <div id="batch18" class="col s12">
+            <div class="row">
+                <div class="col s12 m6 l4 white custom-card-depth" ng-repeat="student in students18 = ( studentCtrl.batch.b18 | filter:studentCtrl.searchText )">
+                    <p class="center-align truncate notranslate">{{student}}</p>
+                </div>
+                <blockquote class="error" ng-if="students18.length === 0">
+                    <br>
+                    Nothing to Display. This happended because the request data is not available.
+                </blockquote>
+            </div>
+        </div>
+    </div>
+</div>

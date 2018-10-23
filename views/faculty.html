@@ -1,0 +1,79 @@
+<style>
+    @media only screen and (max-width: 600px){
+        .valign-wrapper{display: block;}
+        .valign-wrapper div img{margin-top:5px;}
+    }
+    @media only screen and (min-width: 601px){
+        .row .col.m6 {margin-left:0.00000001px;}
+    }
+    .chip{font-size:16px;}
+    input[type=text]:not(.browser-default){
+        box-sizing:border-box;padding:4px 10px;border-radius:4px;color:white;font-size:20px;border:none; background:rgba(0,0,0,0.1);
+    }
+    .material-icons{float:left; padding-right:4px; font-size: 24px;line-height: 32px;}
+    .custom-card-header{padding: 0.01em 16px;font-size: 15px;}
+    .custom-card-sub-head{padding:10px 16px;font-size:15px;}
+    .custom-card-stacked{padding:10px 16px;}
+    .custom-card-stacked p{margin:2px;}
+    .custom-image{border-color:#e6ecf0;width:120px; max-width:95%;padding:2px;border-radius:100%;border-style: solid;border-width: 1px;}
+</style>
+<div id="topControl">
+    <div class="container">
+        <div class="row flex flex-center flex-wrap">
+            <div class="col s12 m12 l6">
+                <h4 class="center-align white-text">
+                    Faculty
+                </h4>
+            </div>
+            <div class="col s12 m12 l6">
+                <input type="text" ng-model="facultyCtrl.searchText.name" placeholder="Search Faculty" class="autocomplete"></input>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container">    
+    <div class="row flex flex-wrap">
+        <div class="col s12 m6 flex" ng-repeat="faculty in faculties = ( facultyCtrl.faculties | filter:facultyCtrl.searchText )">
+            <div class="card flex flex-column custom-card-depth border-radius" style="width: 100%;">
+                <div class="custom-card-header institute-blue-bg border-radius-top">
+                    <h5 class="white-text">{{faculty.name}}</h5>
+                </div>
+                <div class="custom-card-sub-head bg-white border border-bottom border-dull">
+                    {{faculty.designation}}
+                </div>
+                <div class="row valign-wrapper" style="margin:0; min-height:160px;flex-grow:1;">
+                    <div class="col s12 m4 center-align">
+                        <img ng-src="data/images/{{faculty.photo}}" class="custom-image" alt="{{faculty.name}}">
+                    </div>
+                    <div class="col s12 m8">
+                        <ul style="padding-left:16px;">
+                            <li style="list-style-type:circle;" ng-repeat="area in faculty.area">{{area}}</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="custom-card-stacked bg-dull-white border-radius border border-top border-dull">
+                    <div ng-show="faculty.contact.phone" class="chip truncate transparent link-color">
+                        <i class="material-icons notranslate">contact_phone</i>
+                        {{faculty.contact.phone}}
+                    </div>
+                    <div ng-show="faculty.contact.email" class="chip truncate transparent link-color">
+                        <i class="material-icons notranslate">email</i>
+                        {{faculty.contact.email}}
+                    </div>
+                    <div ng-show="faculty.page.text" class="chip truncate transparent link-color">
+                        <i class="material-icons notranslate">insert_link</i>
+                        <a ng-href="{{faculty.page.link}}" class="link-color">{{faculty.page.text}}</a>
+                    </div>
+                    <div ng-show="faculty.more.text" class="chip truncate transparent link-color">
+                        <i class="material-icons notranslate">link</i>
+                        <a href="#!pdf/faculty/{{faculty.more.link}}/{{faculty.more.title}}" class="link-color">{{faculty.more.text}}</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <blockquote class="error" ng-if="faculties.length === 0">
+            <br>
+            Nothing to Display. This happended because the request data is not available.
+        </blockquote>
+    </div>
+</div>

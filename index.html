@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html ng-app="app" lang="en">
+    <head>
+        <script>
+            window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+            ga('create', 'UA-123597315-4', 'auto'); /*4 for production*/
+        </script>
+        <script async src='https://www.google-analytics.com/analytics.js'></script>
+        <meta charset="utf-8">
+        <title ng-bind="title">IIIT Kottayam</title>
+        <link rel="shortcut icon" type="image/png" href="data/images/main/logo-mini.png"/>
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto|Hind" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link href="styles/ngProgress.css" rel="stylesheet">    
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <script type="text/javascript" src="scripts/vendor/angular.min.js"></script>
+        <script type="text/javascript" src="scripts/app.js?ver=21102018"></script>  
+        <script type="text/javascript" src="scripts/vendor/angular-animate.min.js"></script>  
+        <script type="text/javascript" src="scripts/vendor/angular-sanitize.min.js"></script>      
+        <script type="text/javascript" src="scripts/vendor/angular-route.min.js"></script>
+        <script type="text/javascript" src="scripts/vendor/ocLazyLoad.min.js"></script>
+        <script type="text/javascript" src="scripts/vendor/hammer.min.js"></script>
+        <script type="text/javascript" src="scripts/vendor/ngprogress.min.js"></script>
+        <style>
+            ::-webkit-scrollbar {width: 10px;}
+            ::-webkit-scrollbar-track {background-color: #f1f1f1;border:none;}
+            ::-webkit-scrollbar-thumb {background-color: #888;}
+            ::-webkit-scrollbar-thumb:hover {background-color: #555;}
+            .bg-dull-white{background:#f7f7f7 !important;}
+            .border-top{border-top-width: 1px !important;}
+            .border-bottom{border-bottom-width: 1px !important;}
+            .border-all{border-width: 1px !important;}
+            .border{border-style: solid;border-width: 0;}
+            .border-dull{border-color:rgba(160, 160, 160, 0.2);}
+            .link-color{color:rgb(8, 55, 97) !important;}
+            .border-radius-top{border-radius:4px 4px 0 0;}
+            .border-radius-bottom{border-radius:0 0 4px 4px;}
+            .border-radius{border-radius:4px !important}
+            .flex{display:flex;}
+            .flex-wrap{flex-wrap:wrap;}
+            .flex-center{align-items:center;}
+            .flex-end{align-items:flex-end;}
+            .flex-center-h{justify-content: center;}
+            .flex-justify{justify-content:space-between;}
+            .flex-row{flex-direction:row;}
+            .flex-row-reverse{flex-direction:row-reverse}
+            .flex-column{flex-direction:column;}
+            .bg-overlay{background-color:rgba(0,0,0,0.14) !important;}
+            .custom-card-depth{box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 1px 5px 0 rgba(0,0,0,0.12), 0 3px 1px -2px rgba(0,0,0,0.2) !important;}
+            .institute-blue-bg{background:rgb(66,133,244) !important;}
+            .institute-blue{color:rgb(66,133,244);}
+            .institute-text-green{color:rgb(56, 178, 71);}
+            .institute-green-bg{background:rgb(56, 178, 71);}
+            body{font-family: 'Raleway', Calibri, Arial, sans-serif;font-size:16px;background-color:#f7f7f7;}
+            h1,h2,h3,h4,h5,h6{color:rgb(66,133,244);font-family:'Roboto', sans-serif;}            
+            #topControl{width:100%;background-color: rgb(66,133,244);box-shadow: 0 0 4px rgba(0,0,0,.1), 0 4px 8px rgba(0,0,0,.1);}
+            #topControl h4{margin:10px 0 !important;}
+            #topControl input[type=text]:not(.browser-default){box-sizing:border-box;padding:4px 10px;border-radius:4px;color:white;font-size:20px;border:none; background:rgba(0,0,0,0.1);margin:0 0 10px 0}
+            .tabs-scroll{
+            background:transparent !important;
+            color:rgba(0,0,0,0.3) !important;
+            font-weight:bold !important;
+            display:none;
+            height: auto !important;width:auto !important; padding:0 !important}
+            @media screen and (min-width:995px){
+                #topControl h4{text-align:left;}
+                #topControl input[type=text]:not(.browser-default){margin:0;}
+                .autocomplete-content.dropdown-content{width:39.1%;}
+                .autocomplete-content{margin-top:0px !important;}
+                .tabs .indicator{background-color:transparent;}
+            }
+            .autocomplete-content{margin-top:-10px !important}
+            .para{font-family:'Open Sans', sans-serif;}
+            .justify{text-align: justify !important;}
+            .container{width:80% !important;}
+            .tabs .indicator{height:3px !important;}            
+            blockquote.error{border-left:none; font-size:20px;color: #cc0000}
+            html,body{overflow-x:hidden}
+            .autocomplete-content{position:absolute !important; width:80%;box-shadow: 0 3px 8px 0 rgba(0,0,0,0.2), 0 0 0 1px rgba(0,0,0,0.08);}
+        </style>
+        <link type="text/css" rel="stylesheet" href="styles/materialize.min.css"  media="screen,projection"/>
+        <link rel="stylesheet" href="styles/font-awesome.min.css">
+        <style>
+            nav i.right{margin-left:3px !important}
+            nav ul a{color:#000;font-size:18px;letter-spacing: 0.5px; padding:0 10px !important; font-weight:normal !important;}
+            .dropdown-content li>a{font-size:14px; padding:15px 8px !important;}
+            nav{z-index:900;line-height:61px;transition-property:all;transition-timing-function:ease-in-out;box-shadow: none;}
+            nav ul a{transition:all .3s ease-in;font-weight:bold;border-bottom: solid 3px transparent;}
+            nav ul a:hover{border-bottom:solid 3px rgb(56, 178, 71);color:rgb(56, 178, 71);background:none;}
+            .activeMenuTab{border-bottom:solid 3px rgb(56, 178, 71);color:rgb(56, 178, 71);}
+            .activeSideMenuTab{color:rgb(56, 178, 71) !important;font-weight:bold !important;}
+            #slide-out li a{border-bottom:solid 1px #f1f1f1;font-weight:bold;}
+            .side-nav .collapsible-header:hover,.side-nav .collapsible-header .active,.side-nav li.active {background:none;}
+            .side-nav li:hover,.side-nav li a:hover{background:none}
+        </style>
+        <style>
+            .top-container {padding:10px 10px 0 10px;}
+            .header {background: #555;color: #f1f1f1;}
+            .sticky {position: fixed;top: 0;width: 100%;}
+            .sticky + .content {padding-top: 64px;}
+            .custom-brand-name{color:transparent;background: url(data/images/main/logo-bg-clipped.png) repeat;background-size: 200%;background-clip: text;-webkit-background-clip: text;animation-name:masked-animation;animation-duration:40s;animation-iteration-count: infinite;animation-timing-function: linear;font-family: 'Hind', sans-serif;}
+            .big-head{font-size:45px;}
+            /*If we want the our font size in a range where 14px is the minimum size at the smallest viewport width of 300px and where 26px is the maximum size at the largest viewport width of 1600px, then our equation looks.*/
+            .small-head{font-size: calc(18px + (38 - 18) * ((100vw - 300px) / (990 - 300)));} 
+            .custom-responsive-image{height:50px;position:absolute;top:40px;left:15px;}
+            @media only screen and (min-width: 565px) {.custom-responsive-image{height:80px;top:10px;left:10px}}
+            @media only screen and (min-width: 650px) {.custom-responsive-image{height:100px;top:5px;left:10px}}
+            @media only screen and (min-width: 900px) {.custom-responsive-image{height:120px;top:5px; left:10px}}
+            .custom-logo-mobile{height:54px !important;top:0px !important;}
+            @media only screen and (max-width:565px){#mobile-head .custom-spacer{display:none} #mobile-head{align-items:center!important; justify-content: center !important;}}
+            @-webkit-keyframes masked-animation {0% {background-position: bottom left;}	100% {background-position: top right;}}
+            @keyframes masked-animation {0% {background-position: bottom left;}	100% {background-position: top right;}}
+        </style>
+        <style>
+            .custom-view{background:transparent;transition-property:all;transition-timing-function:ease-in-out;}
+            .page-footer{background-color: #bfbaba;}
+            .fa{font-size:25px;margin-right:5px;margin-left:5px;background-color:#fff;color:#182c39;border-radius:51%;padding:10px;height:50px;width:50px;text-align:center;line-height:31px;text-decoration:none;transition:all .5s}
+            .fa-facebook:focus,.fa-facebook:hover{color:#2b55ff}
+            .fa-instagram:focus,.fa-instagram:hover{color:#8a3ab9}
+            .fa-twitter:focus,.fa-twitter:hover{color:#00aced}
+            .fa-youtube:focus,.fa-youtube:hover{color:#b31217}
+            .fa-bank:focus,.fa-bank:hover,.fa-envelope:focus,.fa-envelope:hover,.fa-phone:focus,.fa-phone:hover{color:#4285f4}
+        </style>
+    </head>
+    <body>
+        <script type="text/javascript" src="scripts/vendor/jquery-3.2.1.min.js"></script>
+        <script type="text/javascript" src="scripts/vendor/materialize.min.js"></script>
+        <ul id="dropdown1" class="dropdown-content">
+            <li><a href="#!admin">Administration</a></li>
+            <li><a href="#!faculty">Faculty</a></li>
+            <li><a href="#!technical">Technical</a></li>
+            <li><a href="#!researchScholar">Research Scholars</a></li>
+            <li class="divider"></li>
+            <li><a href="#!students/batch15">Students</a></li>
+        </ul>
+        <ul id="dropdown2" class="dropdown-content">
+            <li><a href="#!admission">Admission</a></li>
+            <li><a href="#!academics">Academics</a></li>
+            <li><a href="#!pdf/academics/courseStructure/Course%20Curriculum">Course Curriculum</a></li>
+            <li><a href="#!pdf/academics/courseRegulation/Course%20Regulation">Course Regulation</a></li>
+            <li><a href="#!pdf/academics/academicCalendar/Academic%20Calendar">Academic Calendar</a></li>
+        </ul>
+        <ul id="dropdown3" class="dropdown-content">
+            <li><a href="#!campus/overview">Overview</a></li>
+            <li><a href="#!campus/IEEE">IEEE</a></li>
+            <li><a href="#!campus/hostel">Hostel</a></li>
+            <li><a href="#!campus/internet">Internet</a></li>
+            <li><a href="#!campus/sportsandyoga">Sports and Yoga</a></li>
+        </ul>
+        <ul id="dropdown4" class="dropdown-content">
+            <li><a href="#!placement">Placement</a></li>
+            <li class="divider"></li>
+            <li><a href="#!culturalClub">Cultural Club</a></li>
+            <li><a href="#!codingClub">Coding Club</a></li>
+            <li><a href="#!sportsClub">Sports Club</a></li>
+            <li><a href="#!socialClub">Social Club</a></li>
+        </ul>
+        <ul id="dropdown5" class="dropdown-content">
+            <li><a href="#!administration">Administration</a></li>
+            <li><a href="#!about">About</a></li>
+        </ul>
+        <ul id="slide-out" class="side-nav" style="z-index:2000;">
+            <li><a href="#!home" ng-class="{activeSideMenuTab: activeTab=='home'}">Home</a></li>
+            <li><a href="#!whyIIITK" ng-class="{activeSideMenuTab: activeTab=='whyIIIT'}">Why IIIT Kottayam</a></li>
+            <li>
+                <ul class="collapsible collapsible-accordion">
+                    <li>
+                        <a class="collapsible-header" style="padding:0 32px">Institute</a>
+                        <div class="collapsible-body">
+                            <ul>
+                                <li><a ng-class="{activeSideMenuTab: activeTab=='administration'}" href="#!administration" style="font-weight:normal;;padding:0 50px">Administration</a></li>
+                                <li><a style="font-weight:normal;padding:0 50px" ng-class="{activeSideMenuTab: activeTab=='about'}" href="#!about">About</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <ul class="collapsible collapsible-accordion">
+                    <li>
+                        <a class="collapsible-header" style="padding:0 32px">Academics</a>
+                        <div class="collapsible-body">
+                            <ul>
+                                <li><a style="font-weight:normal;padding:0 50px" ng-class="{activeSideMenuTab: activeTab=='admission'}" href="#!admission">Admission</a></li>
+                                <li><a ng-class="{activeSideMenuTab: activeTab=='academics'}" href="#!academics" style="font-weight:normal;padding:0 50px">Academics</a></li>
+                                <li><a style="font-weight:normal;padding:0 50px" href="#!pdf/academics/courseStructure/Course%20Curriculum">Course Curriculum</a></li>
+                                <li><a style="font-weight:normal;padding:0 50px" href="#!pdf/academics/courseRegulation/Course%20Regulation">Course Regulation</a></li>
+                                <li><a style="font-weight:normal;padding:0 50px" href="#!pdf/academics/academicCalendar/Academic%20Calendar">Academic Calendar</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <ul class="collapsible collapsible-accordion">
+                    <li>
+                        <a class="collapsible-header" style="padding:0 32px">People</a>
+                        <div class="collapsible-body">
+                            <ul>
+                                <li><a ng-class="{activeSideMenuTab: activeTab=='admin'}" href="#!admin" style="font-weight:normal;;padding:0 50px">Administration</a></li>
+                                <li><a style="font-weight:normal;padding:0 50px" ng-class="{activeSideMenuTab: activeTab=='faculty'}" href="#!faculty">Faculty</a></li>
+                                <li><a style="font-weight:normal;padding:0 50px" ng-class="{activeSideMenuTab: activeTab=='researchScholar'}" href="#!researchScholar">Research Scholars</a></li>
+                                <li><a style="font-weight:normal;padding:0 50px" ng-class="{activeSideMenuTab: activeTab=='technical'}" href="#!technical">Technical</a></li>
+                                <li><a style="font-weight:normal;padding:0 50px" ng-class="{activeSideMenuTab: activeTab=='students'}" href="#!students/batch15">Students</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <ul class="collapsible collapsible-accordion">
+                    <li>
+                        <a class="collapsible-header" style="padding:0 32px">Campus</a>
+                        <div class="collapsible-body">
+                            <ul>
+                                <li><a ng-class="{activeSideMenuTab: activeTab=='campus/overview'}" href="#!campus/overview" style="font-weight:normal;padding:0 50px">Overview</a></li>
+                                <li><a style="font-weight:normal;padding:0 50px" ng-class="{activeSideMenuTab: activeTab=='campus/ieee'}" href="#!campus/IEEE">IEEE</a></li>
+                                <li><a style="font-weight:normal;padding:0 50px" ng-class="{activeSideMenuTab: activeTab=='campus/hostel'}" href="#!campus/hostel">Hostel</a></li>
+                                <li><a style="font-weight:normal;padding:0 50px" ng-class="{activeSideMenuTab: activeTab=='campus/internet'}" href="#!campus/internet">Internet</a></li>
+                                <li><a style="font-weight:normal;padding:0 50px" ng-class="{activeSideMenuTab: activeTab=='campus/sportsandyoga'}" href="#!campus/sportsAndYoga">Sports And Yoga</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <ul class="collapsible collapsible-accordion">
+                    <li>
+                        <a class="collapsible-header" style="padding:0 32px">Students</a>
+                        <div class="collapsible-body">
+                            <ul>
+                                <li><a ng-class="{activeSideMenuTab: activeTab=='placement'}" href="#!placement" style="font-weight:normal;padding:0 50px">Placement</a></li>
+                                <li><a style="font-weight:normal;padding:0 50px" ng-class="{activeSideMenuTab: activeTab=='culturalClub'}" href="#!culturalClub">Cultural Club</a></li>
+                                <li><a style="font-weight:normal;padding:0 50px" ng-class="{activeSideMenuTab: activeTab=='codingClub'}" href="#!codingClub">Coding Club</a></li>
+                                <li><a style="font-weight:normal;padding:0 50px" ng-class="{activeSideMenuTab: activeTab=='sportsClub'}" href="#!sportsClub">Sports Club</a></li>
+                                <li><a style="font-weight:normal;padding:0 50px" ng-class="{activeSideMenuTab: activeTab=='socialClub'}" href="#!socialClub">Social Club</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+            </li>
+            <li><a ng-class="{activeSideMenuTab: activeTab=='events'}" href="#!events">Events</a></li>
+            <li><a ng-class="{activeSideMenuTab: activeTab=='career'}" href="#!career">Career</a></li>
+            <li>
+                <ul class="collapsible collapsible-accordion">
+                    <li>
+                        <a class="collapsible-header" style="padding:0 32px">Tenders</a>
+                        <div class="collapsible-body">
+                            <ul>
+                                <li><a ng-class="{activeSideMenuTab: activeTab=='tenders/livetenders'}" href="#!tenders/liveTenders" style="font-weight:normal;padding:0 50px">Live Tenders</a></li>
+                                <li><a style="font-weight:normal;padding:0 50px" ng-class="{activeSideMenuTab: activeTab=='tenders/closedtenders'}" href="#!tenders/closedTenders">Closed Tenders</a></li>
+                                <li><a style="font-weight:normal;padding:0 50px" ng-class="{activeSideMenuTab: activeTab=='tenders/cancelledtenders'}" href="#!tenders/cancelledTenders">Cancelled Tenders</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+            </li>
+            <li><a ng-class="{activeSideMenuTab: activeTab=='contact'}" href="#!contact">Contact</a></li>
+        </ul>
+        <div class="top-container white hide-on-med-and-down">
+            <div class="flex flex-justify flex-end">
+                <a href="#!home"><img src="data/images/main/logo.jpg" alt="IIIT Kottayam Logo" style="height:105px;position:absolute; top:20px"></a>
+                <div class="custom-spacer"></div>
+                <div class="flex flex-column flex-end">
+                    <span class="custom-brand-name big-head notranslate" style="margin:0;font-family: 'Hind', sans-serif;"><a href="#!home" style="color:transparent">भारतीय सूचना प्रौद्योगिकी संस्थान कोट्टायम</a></span>
+                    <span class="custom-brand-name big-head notranslate" style="margin:0;font-size:29.6px"><a href="#!home" style="color:transparent">Indian Institute of Information Technology Kottayam</a></span>
+                </div>
+            </div>
+        </div>
+        <div class="top-container white show-on-medium-and-down" style="display:none">
+            <div class="flex flex-justify flex-end" id="mobile-head">
+                <div class="custom-spacer"></div>
+                <span class="custom-brand-name small-head truncate notranslate" style="margin:0;"><a href="#!home" style="color:transparent">भारतीय सूचना प्रौद्योगिकी संस्थान कोट्टायम</a></span>
+            </div>
+        </div>
+        <nav class="white header flex flex-row flex-justify" id="myHeader">
+            <div style="overflow:hidden" class="hide-on-med-and-down">
+                <a href="#!home"><img id="logo-on-small-nav" src="data/images/main/logo.jpg" alt="IIIT Kottayam Logo" style="height:60px;display:none;padding-top:5px"></a>
+            </div>
+            <div style="display:none" class="show-on-medium-and-down">
+                <a href="#!home"><img src="data/images/main/logo.jpg" alt="IIIT Kottayam Logo" class="custom-responsive-image" style="padding-top:5px"></a>
+            </div>
+            <div class="nav-wrapper">
+                <ul class="right hide-on-med-and-down">
+                    <li><a ng-class="{activeMenuTab: activeTab=='home'}" href="#!home">Home</a></li>
+                    <li><a ng-class="{activeMenuTab: activeTab=='whyIIIT'}" href="#!whyIIITK">Why IIIT Kottayam</a></li>
+                    <li><a ng-class="{'activeMenuTab': activeTab=='about' || activeTab=='administration'}" class="dropdown-button" href="#!administration" data-activates="dropdown5">Institute<i class="material-icons right notranslate">arrow_drop_down</i></a></li>
+                    <li><a ng-class="{'activeMenuTab': activeTab=='academics'|| activeTab=='admission'}" class="dropdown-button" href="#!admission" data-activates="dropdown2">Academics<i class="material-icons right notranslate">arrow_drop_down</i></a></li>
+                    <li><a ng-class="{activeMenuTab: activeTab=='faculty' || activeTab=='students' || activeTab=='admin' || activeTab=='researchScholar' || activeTab=='technical'}" class="dropdown-button" href="#!admin" data-activates="dropdown1">People<i class="material-icons right notranslate">arrow_drop_down</i></a></li>                    
+                    <li><a ng-class="{activeMenuTab: activeTab=='campus' || activeTab=='campus/overview' || activeTab=='campus/ieee' || activeTab=='campus/hostel' || activeTab=='campus/internet' || activeTab=='campus/sportsandyoga'}" href="#!Campus" class="dropdown-button" data-activates="dropdown3">Campus<i class="material-icons right notranslate">arrow_drop_down</i></a></li>
+                    <li><a ng-class="{activeMenuTab: activeTab=='sportsClub' || activeTab=='culturalClub' || activeTab=='codingClub' || activeTab=='socialClub' || activeTab=='placement'}" class="dropdown-button" data-activates="dropdown4" href="#!placement">Students<i class="material-icons right notranslate">arrow_drop_down</i></a></li>
+                    <li><a ng-class="{activeMenuTab: activeTab=='events'}" href="#!events">Events</a></li>
+                    <li><a ng-class="{activeMenuTab: activeTab=='career'}" href="#!career">Career</a></li>
+                    <li><a ng-class="{activeMenuTab: activeTab=='tenders/livetenders' || activeTab=='tenders/cancelledtenders' || activeTab=='tenders/closedtenders'}" href="#!tenders">Tenders</a></li>
+                    <li><a ng-class="{activeMenuTab: activeTab=='contact'}" href="#!contact">Contact</a></li>
+                </ul>
+                <a href="#" data-activates="slide-out" class="button-collapse"><i class="material-icons institute-text-green notranslate">menu</i></a>
+            </div>
+        </nav>
+        <div ng-view class="custom-view content"></div>
+        <footer class="page-footer black-text border border-top border-dull">
+          <div class="container">
+            <div class="row center-align">
+              <div class="col s12">
+                    <a href="https://twitter.com/IIITKottayam" target="new" class="twitter">
+                        <i class="fa fa-twitter"></i>
+                    </a>
+                    <a href="https://www.facebook.com/IIITKKottayam/" target="new" class="facebook">
+                        <i class="fa fa-facebook"></i>
+                    </a>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col s6 m3">
+                  <ul>
+                      <li><a href="#!sitemap" class="black-text">Site Map</a></li>
+                      <li><a href="#!academics" class="black-text">Academics</a></li>
+                      <li><a href="#!events" class="black-text">Events</a></li>
+                      <li><a href="#!administration" class="black-text">Administration</a></li>
+                      <li><a href="http://117.232.110.174" target="_blank" class="black-text">Online Library</a></li>
+                  </ul>
+              </div>
+              <div class="col s6 m3">
+                  <ul>
+                      <li><a href="#!career" class="black-text">Career</a></li>
+                      <li><a href="#!placement" class="black-text">Placement</a></li>
+                      <li><a href="#!tenders" class="black-text">Tenders</a></li>
+                      <li><a href="#!career" class="black-text">Career</a></li>
+                      <li><a href="#!contact" class="black-text">Contact</a></li>
+                  </ul>
+              </div>
+              <div class="col s6 m3">
+                  <ul>
+                      <li><a href="#!campus/overview" class="black-text">Overview</a></li>
+                      <li><a href="#!campus/IEEE" class="black-text">IEEE</a></li>
+                      <li><a href="#!campus/hostel" class="black-text">Hostel</a></li>
+                      <li><a href="#!campus/internet" class="black-text">Internet</a></li>
+                      <li><a href="#!campus/sportsandyoga" class="black-text">Sports and Yoga</a></li>
+                  </ul>
+              </div>
+              <div class="col s6 m3">
+                  <ul>
+                      <li><a href="https://josaa.nic.in/webinfocms/public/view.aspx?page=46" target="_blank" class="black-text">2018 Seat Allotment Details</a></li>
+                      <li><a href="https://scholarships.gov.in/" target="_blank" class="black-text">National Scholarship Portal</a></li>
+                      <li><a href="http://icentre.iiitkottayam.ac.in/" class="black-text">Atal Incubation Center</a></li>
+                      <li><a href="#!antiragging" class="black-text">Anti-Ragging</a></li>
+                  </ul>
+              </div>
+            </div>
+          </div>  
+          <div class="footer-copyright">
+            <div class="row" style="width:100%">
+                <div class="col s12 center-align black-text">
+                    <br>
+                    &copy; IIIT Kottayam 2018<br>Indian Institute of Information Technology Kottayam
+                </div>
+                <div class="col s12">
+                    <br>
+                </div>
+                <div class="col s12 right-align">
+                    <div id="google_translate_element"></div>
+                </div>
+            </div>
+          </div>
+        </footer>
+        <script type="text/javascript">
+            function googleTranslateElementInit() {
+                new google.translate.TranslateElement({pageLanguage: 'en', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
+            }
+        </script>
+        <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    </body>
+    <script>
+        function changeGoogleStyles() {
+            if(($goog = $('.goog-te-menu-frame').contents().find('body')).length) {
+                var stylesHtml = '<style>'+
+                    '.goog-te-menu2 {'+
+                        'border:none !important;'+
+                        'width:250px !important;'+
+                        'overflow-y:hidden !important;'+
+                        'overflow-x:auto !important;'+
+                        'box-sizing:border-box !important;'+
+                        'height:auto !important;'+
+                    '}'+
+                '</style>';
+                $goog.prepend(stylesHtml);
+            } else {
+                setTimeout(changeGoogleStyles, 50);
+            }
+        }
+        changeGoogleStyles();
+        $( document ).ready(function () {
+            $(".button-collapse").sideNav({closeOnClick: true,edge:'right'});
+            $(".dropdown-button").dropdown({constrainWidth:false,belowOrigin:true,hover:true});
+            window.onscroll = function() {myFunction()};
+            var header = document.getElementById("myHeader");
+            var sticky = header.offsetTop;
+            var ele=document.getElementById('logo-on-small-nav');            
+            function myFunction() {
+            var scrollTop     = $(window).scrollTop(),
+            topContainerOffset = $('#topControl').offset().top,
+            height = $('#topControl').height(),
+            distance = (topContainerOffset - scrollTop);
+            if(Math.round(distance+height)<63){$('nav').css({'box-shadow':'0 0 4px rgba(0,0,0,.1), 0 4px 8px rgba(0,0,0,.1)'})}
+            else{$('nav').css({'box-shadow':'none'})}
+            if (window.pageYOffset >= sticky) {header.classList.add("sticky");ele.style.display="block";document.getElementsByClassName('custom-responsive-image')[0].classList.add('custom-logo-mobile');}
+            else{header.classList.remove("sticky");ele.style.display="none";document.getElementsByClassName('custom-responsive-image')[0].classList.remove('custom-logo-mobile');}}
+        });
+    </script>
+</html>

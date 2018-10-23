@@ -1,0 +1,38 @@
+<style>
+    .custom-head{padding: 0.5rem 1rem;}
+    .custom-body{box-sizing: border-box;padding: 2rem;}
+    .custom-job{margin: .5rem 0 1rem 0;}
+    .chip{color:rgb(8, 55, 97);font-size:16px;}
+    .material-icons{float:left; padding-right:4px; font-size: 24px;line-height: 32px;}
+</style>
+<div id="topControl"></div>
+<br>
+<div class="container">
+    <div class="row">
+        <div class="col s12">
+            <div class="custom-job border-radius custom-card-depth" ng-repeat="job in careerCtrl.jobs">
+                <div class="custom-head institute-blue-bg flex flex-row flex-center border-radius-top">
+                    <div style="flex-grow:2">
+                        <h5 class="white-text">{{job.title}}</h5>
+                    </div>
+                    <div>
+                        <span ng-show="{{job.status}}" class="new badge bg-overlay" data-badge-caption="Open"></span>
+                        <span ng-hide="{{job.status}}" class="new badge red" data-badge-caption="Close"></span>
+                    </div>
+                </div>
+                <div class="custom-body white" ng-show="{{job.status}}">
+                    <span class="para">{{job.description}}</span>
+                </div>
+                <div class="bg-dull-white border-radius-bottom border border-top border-dull">
+                    <div style="padding:10px 0 8px 10px">
+                        <div class="chip truncate transparent link-color">                                
+                            <i class="material-icons">insert_link</i>
+                            <a ng-show="{{job.linktype}}" class="link-color" href="{{job.link}}">Know More</a>
+                            <a ng-hide="{{job.linktype}}" class="link-color" href="#!pdf/career/{{job.link}}/{{job.title}}">Know More</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
