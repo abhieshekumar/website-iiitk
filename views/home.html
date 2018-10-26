@@ -15,37 +15,74 @@
     .carousel .indicators{width:fit-content;margin:0 auto;}
     .custom-news div{padding:10px 15px;border-bottom:solid 2px #f1f1f1;}
     .carousel .indicators .indicator-item{margin:4px}
+    .slider .slides li .caption{
+        top:85%;
+    }
+    .bannerCaption{color:white;text-shadow:0 0 8px black;}
 </style>
 
 <div id="topControl">
     <div class="slider">
         <ul class="slides">
             <li>
-                <img src="data/images/home/upcoming0.jpg" alt="Upcoming Campus of IIIT Kottayam">
+                <img src="data/images/home/upcomingnew.jpg">
+                <div class="caption center-align">
+                <h5 class="bannerCaption">Upcoming Campus</h5>
+                </div>
             </li>
             <li>
-                <img src="data/images/home/upcoming5.jpg" alt="Upcoming Campus of IIIT Kottayam">
+                <img src="data/images/home/SHSb.jpg">
+                <div class="caption center-align">
+                <h5 class="bannerCaption">Swachhata Hi Seva</h5>
+                </div>
             </li>
             <li>
-                <img src="data/images/home/upcoming2.jpg" alt="Upcoming Campus of IIIT Kottayam">
+                <img src="data/images/home/indep1.jpg">
+                <div class="caption center-align">
+                <h5 class="bannerCaption">Independence Day</h5>
+                </div>
             </li>
             <li>
-                <img src="data/images/home/upcoming3.jpg" alt="Upcoming Campus of IIIT Kottayam">
+                <img src="data/images/home/EBSB1.jpg">
+                <div class="caption center-align">
+                <h5 class="bannerCaption">Ek Bharat Shreshta Bharat</h5>
+                </div>
             </li>
             <li>
-                <img src="data/images/home/upcoming6.jpg" alt="Upcoming Campus of IIIT Kottayam">
+                <img src="data/images/home/EBSB2.jpg">
+                <div class="caption center-align">
+                <h5 class="bannerCaption">Ek Bharat Shreshta Bharat</h5>
+                </div>
+            </li>
+            <li>
+                <img src="data/images/home/pradhva1B.jpg">
+                <div class="caption center-align">
+                <h5 class="bannerCaption">Pradhva 2k18</h5>
+                </div>
+            </li>
+            <li>
+                <img src="data/images/home/pradhva2B.jpg">
+                <div class="caption center-align">
+                <h5 class="bannerCaption">Pradhva 2k18</h5>
+                </div>
+            </li>
+            <li>
+                <img src="data/images/home/MOS1.jpg">
+                <div class="caption center-align">
+                <h5 class="bannerCaption">Visit of Minister of State</h5>
+                </div>
             </li>
         </ul>
         <div style="width:100%;height:100%;z-index:3;position:absolute;top:0" class="flex flex-row flex-center flex-justify">
             <div onclick="$('.slider').slider('prev');">
                 <i class="fa fa-angle-double-left text-white" style="background:none;color:white;text-shadow:0 0 8px black;font-size:40px"></i>
             </div>
-            <div class="caption center-align">
+            <!--<div class="caption center-align">
                 <h3 class="custom-caption white-text">Upcoming Campus</h3>
                 <h5 class="light grey-text text-lighten-3">The campus is expected to be operational in 2018</h5>
                 <br>
                 <a class="btn-flat" style="color:white;border:solid 1px white;border-radius:3px" href="#!gallery/packiyarajan/IIITK%20Upcomming%20Campus%20%20Aug%202017/Upcoming Campus/home">Visit Gallery</a>
-            </div>
+            </div>-->
             <div onclick="$('.slider').slider('next');">
                 <i class="fa fa-angle-double-right" style="background:none;color:white;text-shadow:0 0 8px black;font-size:40px"></i>
             </div>
@@ -103,6 +140,15 @@
                     <h5 class="white-text">Events</h5>
                 </div>
                 <div class="carousel carousel-slider border-radius" data-indicators="true" id="sideEvents" style="border-radius:0 !important">
+                    <div class="carousel-item white-text white">
+                        <div class="flex flex-center-h flex-end" style="width:100%;height:55%;background:url(data/images/home/ACM18.jpeg) center center / cover">
+                            <a class="btn-flat" style="z-index:1000; margin: 0 0 10px 0;border-radius:3px;color: rgb(101,99,98); border: 1px solid rgba(224,224,224,0.52);background:rgba(247,247,247,0.52)" href="#!gallery/IIIT_Kottayam/ACM%20Student%20Chapter/ACM/home">Visit Gallery</a>
+                        </div>
+                        <div style="padding:15px;">
+                            <p class="para institute-blue" style="font-weight:bold;font-size:20px;margin:0">ACM</p>
+                            <p class="para" style="color:rgba(0, 0, 0, 0.87);margin:0">ACM Students Chapter</p>
+                        </div>
+                    </div>
                     <div class="carousel-item white-text white">
                         <div class="flex flex-center-h flex-end" style="width:100%;height:55%;background:url(data/images/home/SHS18.jpg) center center / cover">
                             <a class="btn-flat" style="z-index:1000; margin: 0 0 10px 0;border-radius:3px;color: rgb(101,99,98); border: 1px solid rgba(224,224,224,0.52);background:rgba(247,247,247,0.52)" href="#!gallery/IIIT_Kottayam/Swachhata%20Hi%20Seva%202018/SHS 2018/home">Visit Gallery</a>
@@ -179,7 +225,7 @@
             </div>
         </div>
         <div class="col s12">
-            <h4>Atal Incubation Center</h4>
+            <h4>Atal Incubation Centre</h4>
             <div class="para justify">
                 AIC-IIITKottayam, will address the existing problems of entrepreneurs by providing them sufficient input in terms of knowledge, guidance, mentoring, training, and demonstrations. In addition, the space and facility will be provided to them. The centre will incubate customers to increase the utility of technology relating to IoT and Cloud solutions for societal benefits.
             </div>

@@ -7,11 +7,25 @@ angular.module("app").controller("homeController",function($scope,$rootScope,$ti
         },$rootScope.tabDelay);
         $('.tooltipped').tooltip();
         $('.carousel.carousel-slider').carousel({fullWidth: true});
+        function autoplay() {
+            $('.carousel').carousel('next');
+        setTimeout(autoplay, 8000);}
+        autoplay();
         $('#sideEvents').css("height","350px");
         $('.slider').slider({transition:700,interval:8000,indicators:false});
         var carousel = $('#sideEvents').carousel();if (typeof window.ontouchstart !== 'undefined') {carousel.off('touchstart.carousel');}carousel.off('mousedown.carousel');
     });
     var newsList=[
+        {
+            text:'Hackicav 2018',
+            link:'http://icentre.iiitkottayam.ac.in/hackicav18.html',
+            new:1
+        },
+        {
+            text:'DST-NIMAT Entrepreneurship Program',
+            link:'http://icentre.iiitkottayam.ac.in/hackicav18.html',
+            new:1
+        },
         {
             text:'IIITK at Thathva 2018'
         },
@@ -22,6 +36,10 @@ angular.module("app").controller("homeController",function($scope,$rootScope,$ti
         {
             text:'Internships by Students',
             link:'#!pdf/home/Internship_list/Internship List'
+        },
+        {
+            text:'Upcoming Campus',
+            link:'#!gallery/packiyarajan/IIITK%20Upcomming%20Campus%20%20Aug%202017/Upcoming Campus/home'
         }
     ];
     this.additionalText=function(){

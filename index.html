@@ -14,7 +14,7 @@
         <link href="styles/ngProgress.css" rel="stylesheet">    
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
         <script type="text/javascript" src="scripts/vendor/angular.min.js"></script>
-        <script type="text/javascript" src="scripts/app.js?ver=21102018"></script>  
+        <script type="text/javascript" src="scripts/app.js?ver=26102018"></script>  
         <script type="text/javascript" src="scripts/vendor/angular-animate.min.js"></script>  
         <script type="text/javascript" src="scripts/vendor/angular-sanitize.min.js"></script>      
         <script type="text/javascript" src="scripts/vendor/angular-route.min.js"></script>
@@ -112,6 +112,18 @@
             @keyframes masked-animation {0% {background-position: bottom left;}	100% {background-position: top right;}}
         </style>
         <style>
+            .text-blink{
+                animation-name: blink;
+                animation-duration: 2s;
+                transition-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
+                animation-iteration-count: infinite;
+            }
+            @keyframes blink{
+                from{opacity:0}
+                to{opacity:1}
+            }
+        </style>
+        <style>
             .custom-view{background:transparent;transition-property:all;transition-timing-function:ease-in-out;}
             .page-footer{background-color: #bfbaba;}
             .fa{font-size:25px;margin-right:5px;margin-left:5px;background-color:#fff;color:#182c39;border-radius:51%;padding:10px;height:50px;width:50px;text-align:center;line-height:31px;text-decoration:none;transition:all .5s}
@@ -136,16 +148,13 @@
         <ul id="dropdown2" class="dropdown-content">
             <li><a href="#!admission">Admission</a></li>
             <li><a href="#!academics">Academics</a></li>
-            <li><a href="#!pdf/academics/courseStructure/Course%20Curriculum">Course Curriculum</a></li>
-            <li><a href="#!pdf/academics/courseRegulation/Course%20Regulation">Course Regulation</a></li>
-            <li><a href="#!pdf/academics/academicCalendar/Academic%20Calendar">Academic Calendar</a></li>
         </ul>
         <ul id="dropdown3" class="dropdown-content">
             <li><a href="#!campus/overview">Overview</a></li>
             <li><a href="#!campus/IEEE">IEEE</a></li>
             <li><a href="#!campus/hostel">Hostel</a></li>
             <li><a href="#!campus/internet">Internet</a></li>
-            <li><a href="#!campus/sportsandyoga">Sports and Yoga</a></li>
+            <li><a href="#!campus/sports">Sports</a></li>
         </ul>
         <ul id="dropdown4" class="dropdown-content">
             <li><a href="#!placement">Placement</a></li>
@@ -155,26 +164,10 @@
             <li><a href="#!sportsClub">Sports Club</a></li>
             <li><a href="#!socialClub">Social Club</a></li>
         </ul>
-        <ul id="dropdown5" class="dropdown-content">
-            <li><a href="#!administration">Administration</a></li>
-            <li><a href="#!about">About</a></li>
-        </ul>
         <ul id="slide-out" class="side-nav" style="z-index:2000;">
             <li><a href="#!home" ng-class="{activeSideMenuTab: activeTab=='home'}">Home</a></li>
             <li><a href="#!whyIIITK" ng-class="{activeSideMenuTab: activeTab=='whyIIIT'}">Why IIIT Kottayam</a></li>
-            <li>
-                <ul class="collapsible collapsible-accordion">
-                    <li>
-                        <a class="collapsible-header" style="padding:0 32px">Institute</a>
-                        <div class="collapsible-body">
-                            <ul>
-                                <li><a ng-class="{activeSideMenuTab: activeTab=='administration'}" href="#!administration" style="font-weight:normal;;padding:0 50px">Administration</a></li>
-                                <li><a style="font-weight:normal;padding:0 50px" ng-class="{activeSideMenuTab: activeTab=='about'}" href="#!about">About</a></li>
-                            </ul>
-                        </div>
-                    </li>
-                </ul>
-            </li>
+            <li><a href="#!institute" ng-class="{activeSideMenuTab: activeTab=='institute'}">Institute</a></li>
             <li>
                 <ul class="collapsible collapsible-accordion">
                     <li>
@@ -183,9 +176,6 @@
                             <ul>
                                 <li><a style="font-weight:normal;padding:0 50px" ng-class="{activeSideMenuTab: activeTab=='admission'}" href="#!admission">Admission</a></li>
                                 <li><a ng-class="{activeSideMenuTab: activeTab=='academics'}" href="#!academics" style="font-weight:normal;padding:0 50px">Academics</a></li>
-                                <li><a style="font-weight:normal;padding:0 50px" href="#!pdf/academics/courseStructure/Course%20Curriculum">Course Curriculum</a></li>
-                                <li><a style="font-weight:normal;padding:0 50px" href="#!pdf/academics/courseRegulation/Course%20Regulation">Course Regulation</a></li>
-                                <li><a style="font-weight:normal;padding:0 50px" href="#!pdf/academics/academicCalendar/Academic%20Calendar">Academic Calendar</a></li>
                             </ul>
                         </div>
                     </li>
@@ -217,7 +207,7 @@
                                 <li><a style="font-weight:normal;padding:0 50px" ng-class="{activeSideMenuTab: activeTab=='campus/ieee'}" href="#!campus/IEEE">IEEE</a></li>
                                 <li><a style="font-weight:normal;padding:0 50px" ng-class="{activeSideMenuTab: activeTab=='campus/hostel'}" href="#!campus/hostel">Hostel</a></li>
                                 <li><a style="font-weight:normal;padding:0 50px" ng-class="{activeSideMenuTab: activeTab=='campus/internet'}" href="#!campus/internet">Internet</a></li>
-                                <li><a style="font-weight:normal;padding:0 50px" ng-class="{activeSideMenuTab: activeTab=='campus/sportsandyoga'}" href="#!campus/sportsAndYoga">Sports And Yoga</a></li>
+                                <li><a style="font-weight:normal;padding:0 50px" ng-class="{activeSideMenuTab: activeTab=='campus/sports'}" href="#!campus/sports">Sports</a></li>
                             </ul>
                         </div>
                     </li>
@@ -240,6 +230,7 @@
                 </ul>
             </li>
             <li><a ng-class="{activeSideMenuTab: activeTab=='events'}" href="#!events">Events</a></li>
+            <li><a ng-class="{activeSideMenuTab: activeTab=='idy'}" href="#!idy">IDY-2018</a></li>
             <li><a ng-class="{activeSideMenuTab: activeTab=='career'}" href="#!career">Career</a></li>
             <li>
                 <ul class="collapsible collapsible-accordion">
@@ -283,13 +274,14 @@
             <div class="nav-wrapper">
                 <ul class="right hide-on-med-and-down">
                     <li><a ng-class="{activeMenuTab: activeTab=='home'}" href="#!home">Home</a></li>
-                    <li><a ng-class="{activeMenuTab: activeTab=='whyIIIT'}" href="#!whyIIITK">Why IIIT Kottayam</a></li>
-                    <li><a ng-class="{'activeMenuTab': activeTab=='about' || activeTab=='administration'}" class="dropdown-button" href="#!administration" data-activates="dropdown5">Institute<i class="material-icons right notranslate">arrow_drop_down</i></a></li>
+                    <li><a ng-class="{activeMenuTab: activeTab=='whyIIIT'}" href="#!whyIIITK">Why IIITK</a></li>
+                    <li><a ng-class="{activeMenuTab: activeTab=='institute'}" href="#!institute">Institute</a></li>
                     <li><a ng-class="{'activeMenuTab': activeTab=='academics'|| activeTab=='admission'}" class="dropdown-button" href="#!admission" data-activates="dropdown2">Academics<i class="material-icons right notranslate">arrow_drop_down</i></a></li>
                     <li><a ng-class="{activeMenuTab: activeTab=='faculty' || activeTab=='students' || activeTab=='admin' || activeTab=='researchScholar' || activeTab=='technical'}" class="dropdown-button" href="#!admin" data-activates="dropdown1">People<i class="material-icons right notranslate">arrow_drop_down</i></a></li>                    
-                    <li><a ng-class="{activeMenuTab: activeTab=='campus' || activeTab=='campus/overview' || activeTab=='campus/ieee' || activeTab=='campus/hostel' || activeTab=='campus/internet' || activeTab=='campus/sportsandyoga'}" href="#!Campus" class="dropdown-button" data-activates="dropdown3">Campus<i class="material-icons right notranslate">arrow_drop_down</i></a></li>
+                    <li><a ng-class="{activeMenuTab: activeTab=='campus' || activeTab=='campus/overview' || activeTab=='campus/ieee' || activeTab=='campus/hostel' || activeTab=='campus/internet' || activeTab=='campus/sports'}" href="#!Campus" class="dropdown-button" data-activates="dropdown3">Campus<i class="material-icons right notranslate">arrow_drop_down</i></a></li>
                     <li><a ng-class="{activeMenuTab: activeTab=='sportsClub' || activeTab=='culturalClub' || activeTab=='codingClub' || activeTab=='socialClub' || activeTab=='placement'}" class="dropdown-button" data-activates="dropdown4" href="#!placement">Students<i class="material-icons right notranslate">arrow_drop_down</i></a></li>
                     <li><a ng-class="{activeMenuTab: activeTab=='events'}" href="#!events">Events</a></li>
+                    <li><a ng-class="{activeMenuTab: activeTab=='idy'}" href="#!idy">IDY-2018</a></li>
                     <li><a ng-class="{activeMenuTab: activeTab=='career'}" href="#!career">Career</a></li>
                     <li><a ng-class="{activeMenuTab: activeTab=='tenders/livetenders' || activeTab=='tenders/cancelledtenders' || activeTab=='tenders/closedtenders'}" href="#!tenders">Tenders</a></li>
                     <li><a ng-class="{activeMenuTab: activeTab=='contact'}" href="#!contact">Contact</a></li>
@@ -302,10 +294,10 @@
           <div class="container">
             <div class="row center-align">
               <div class="col s12">
-                    <a href="https://twitter.com/IIITKottayam" target="new" class="twitter">
+                    <a href="https://twitter.com/IIITKKottayam" target="new" class="twitter">
                         <i class="fa fa-twitter"></i>
                     </a>
-                    <a href="https://www.facebook.com/IIITKKottayam/" target="new" class="facebook">
+                    <a href="https://www.facebook.com/IIITKKottayam.pala/" target="new" class="facebook">
                         <i class="fa fa-facebook"></i>
                     </a>
               </div>
@@ -335,7 +327,7 @@
                       <li><a href="#!campus/IEEE" class="black-text">IEEE</a></li>
                       <li><a href="#!campus/hostel" class="black-text">Hostel</a></li>
                       <li><a href="#!campus/internet" class="black-text">Internet</a></li>
-                      <li><a href="#!campus/sportsandyoga" class="black-text">Sports and Yoga</a></li>
+                      <li><a href="#!campus/sports" class="black-text">Sports and Yoga</a></li>
                   </ul>
               </div>
               <div class="col s6 m3">
@@ -344,6 +336,7 @@
                       <li><a href="https://scholarships.gov.in/" target="_blank" class="black-text">National Scholarship Portal</a></li>
                       <li><a href="http://icentre.iiitkottayam.ac.in/" class="black-text">Atal Incubation Center</a></li>
                       <li><a href="#!antiragging" class="black-text">Anti-Ragging</a></li>
+                      <li><a href="http://www.iiitkottayam.ac.in" class="institute-blue text-blink">Old Website</a></li>
                   </ul>
               </div>
             </div>

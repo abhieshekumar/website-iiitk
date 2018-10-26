@@ -6,7 +6,7 @@ angular.module("app").controller("researchScholarController",function($scope,$ro
                                             designation:['2018PHD11001','Research under people'],
                                             contact:{
                                                 email:'csbasil@iiitkottayam.ac.in',
-                                                phone:['9496826']
+                                                phone:[]
                                             }
                                         }
                                     ];

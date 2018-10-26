@@ -4,6 +4,7 @@ angular.module("app").controller("whyIIITController",function($scope,$rootScope,
                                 $scope.$apply(function(){
                                     $rootScope.activeTab='whyIIIT';
                                 });
+                                $('.materialboxed').materialbox();
                             },$rootScope.tabDelay);
                         });
                     })

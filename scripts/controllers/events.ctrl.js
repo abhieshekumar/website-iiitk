@@ -1,6 +1,22 @@
 angular.module("app").controller("eventsController",function($scope,$rootScope,$timeout){
                         var upcoming=[
                             {
+                                title:'ACM Student Chapter',
+                                description:'ACM Student Chapter of IIIT Kottayam inauguration and a workshop organized by ACM on Design Thinking (by Mr. Jim J Seelan)',
+                                photo:{
+                                    file:'ACM18.jpeg',
+                                    posx:'center',
+                                    posy:'center'
+                                },
+                                date:'25th October 2018',
+                                link:[
+                                    {
+                                        text:'Visit Gallery',
+                                        link:'#!gallery/IIIT_Kottayam/ACM%20Student%20Chapter/ACM/events'
+                                    }
+                                ]
+                            },
+                            {
                                 title:'SHS 2018',
                                 description:'IIIT Kottayam observed Swachhata Hi Sewa (SHS 2018) on the precursor of 150th birth year of Mahatma Gandhi, and in the run up to 4th anniversary of Swachh Bharat',
                                 photo:{
@@ -8,7 +24,7 @@ angular.module("app").controller("eventsController",function($scope,$rootScope,$
                                     posx:'center',
                                     posy:'center'
                                 },
-                                date:'28th October 2018',
+                                date:'28th September 2018',
                                 link:[
                                     {
                                         text:'Visit Gallery',

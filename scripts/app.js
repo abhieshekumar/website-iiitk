@@ -131,30 +131,16 @@ angular.module("app",["ngRoute","ngAnimate","ngSanitize","oc.lazyLoad","ngProgre
                                     }
                                 }
                             })
-                            .when("/administration",{
-                                title:"Administration | IIIT Kottayam",
-                                templateUrl:function(){return "views/administration.html?time="+(new Date)},
-                                controller:"administrationController",
-                                controllerAs:"administrationCtrl",
-                                resolve:{
-                                    administrationCtrl : function( $ocLazyLoad ){
-                                        return $ocLazyLoad.load({
-                                            name:'administrationCtrl',
-                                            files:['scripts/controllers/administration.ctrl.js?time='+(new Date)]
-                                        })
-                                    }
-                                }
-                            })
-                            .when("/about",{
-                                title:"About | IIIT Kottayam",
-                                templateUrl:function(){return "views/about.html?time="+(new Date)},
-                                controller:"aboutController",
-                                controllerAs:"aboutCtrl",
+                            .when("/institute",{
+                                title:"Institute | IIIT Kottayam",
+                                templateUrl:function(){return "views/institute.html?time="+(new Date)},
+                                controller:"instituteController",
+                                controllerAs:"instituteCtrl",
                                 resolve:{
                                     administrationCtrl : function( $ocLazyLoad ){
                                         return $ocLazyLoad.load({
                                             name:'aboutCtrl',
-                                            files:['scripts/controllers/about.ctrl.js?time='+(new Date)]
+                                            files:['scripts/controllers/institute.ctrl.js?time='+(new Date)]
                                         })
                                     }
                                 }
@@ -200,6 +186,20 @@ angular.module("app",["ngRoute","ngAnimate","ngSanitize","oc.lazyLoad","ngProgre
                                         return $ocLazyLoad.load({
                                             name:'careerCtrl',
                                             files:['scripts/controllers/career.ctrl.js?time='+(new Date)]
+                                        }) 
+                                    }
+                                }
+                            })
+                            .when("/IDY",{
+                                title:"IDY | IIIT Kottayam",
+                                templateUrl:function(){return "views/idy.html?time="+(new Date)},
+                                controller:"idyController",
+                                controllerAs:"idyCtrl",
+                                resolve:{
+                                     careerCtrl : function( $ocLazyLoad ){
+                                        return $ocLazyLoad.load({
+                                            name:'careerCtrl',
+                                            files:['scripts/controllers/idy.ctrl.js?time='+(new Date)]
                                         }) 
                                     }
                                 }
