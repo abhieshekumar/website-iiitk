@@ -4,8 +4,8 @@
 
 ### Demonstration
 
-- Visit the [Github Hosted Version](https://abhieshekumar.github.io/website-iiitk "Github Hosted Version")
-- Do check the [Official Site](http://www.iiitkottayam.ac.in "Official Site") for any information
+- Visit the [Github Hosted Version](https://abhieshekumar.github.io/website-iiitk "Github Hosted Version"). This version was handed over to the college.
+- Do check the [Official Site](http://www.iiitkottayam.ac.in "Official Site") for any information as the latest version is managed by the technical staff of the college.
 
 ### Written Using
 - HTML
