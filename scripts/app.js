@@ -411,6 +411,20 @@ angular.module("app",["ngRoute","ngAnimate","ngSanitize","oc.lazyLoad","ngProgre
                                     }
                                 }
                             })
+                            .when("/magazine",{
+                                title:"Magazine | IIIT Kottayam",
+                                templateUrl:function(){ return "views/magazine.html?time="+(new Date)},
+                                controller:"magazineController",
+                                controllerAs:"magazineCtrl",
+                                resolve:{
+                                     magazineCtrl : function( $ocLazyLoad ){
+                                        return $ocLazyLoad.load({
+                                            name:'magazineCtrl',
+                                            files:['scripts/controllers/magazine.ctrl.js?time='+(new Date)]
+                                        }) 
+                                    }
+                                }
+                            })
                             .when("/codingClub",{
                                 title:"Coding Club | IIIT Kottayam",
                                 templateUrl:function(){ return "views/codingClub.html?time="+(new Date)},
