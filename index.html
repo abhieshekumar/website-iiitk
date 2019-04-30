@@ -369,6 +369,7 @@
         <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
     </body>
     <script>
+        var googleTimer;
         function changeGoogleStyles() {
             if(($goog = $('.goog-te-menu-frame').contents().find('body')).length) {
                 var stylesHtml = '<style>'+
@@ -382,8 +383,9 @@
                     '}'+
                 '</style>';
                 $goog.prepend(stylesHtml);
+                clearTimeout(googleTimer);
             } else {
-                setTimeout(changeGoogleStyles, 50);
+                googleTimer = setTimeout(changeGoogleStyles, 50);
             }
         }
         changeGoogleStyles();
