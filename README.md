@@ -11,3 +11,4 @@
 - HTML
 - Materialize CSS
 - Angular JS
+- Hammer JS
