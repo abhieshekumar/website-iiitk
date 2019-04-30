@@ -1,0 +1,31 @@
+<style>
+  html,body{overflow-x:hidden !important; overflow-y:hidden !important; background:#f7f7f7}
+  .magazine-heading{flex-grow:2;font-size:30px;}
+  @media only screen and (max-width:500px){
+      .magazine-heading{font-size:26px;}
+  }
+  footer{display: none;}
+  #myHeader{display: none !important;}
+  #mobile-head{display:none !important;}
+  .top-container{display: none;padding:0 !important}
+</style>
+<div id="topControl">
+  <div class="container" style="width:100% !important; max-width:100% !important;">
+      <div class="row" style="padding: 0 10px; margin-bottom:0">
+          <div class="col s12 flex flex-row flex-center">
+              <div>
+                  <a href="#!home" class="black-text"><i class="material-icons small white-text notranslate">arrow_back</i></a>
+              </div>
+              <div class="magazine-heading center-align white-text">
+                  IIITK Annual Magazine
+              </div>
+              <div>
+                <a class="black-text" href="data/pdf/Nirhaar2k19.pdf" download><i class="material-icons small white-text notranslate">file_download</i></a>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+<div class="container" style="width:100% !important; max-width:100% !important;background:url(data/images/info/loader.gif) center center no-repeat;">
+  <iframe ng-src="http://heyzine.com/flipbooks?hash=13c1a90e389240f1f6ec54b31fca152a7f0a8254.pdf" style="width:100%; height:calc(100vh - 45px);" frameborder="0"></iframe>
+</div>
